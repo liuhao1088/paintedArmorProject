@@ -1,0 +1,41 @@
+@import "/template/myTemplate.wxss";
+.navScroll{
+  display: flex;
+  white-space: nowrap;
+  height: 80rpx;
+  background-color: rgba(83, 83, 83, 100);
+}
+
+.navScroll .navItem{
+  width: calc(100%/4);
+  font-size: 20rpx;
+  border:0rpx solid red;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.navScroll .navItem .active{
+  background-color: rgba(238, 205, 141, 100);
+  color: rgba(255, 255, 255, 100);
+}
+
+.navScroll .navContent{
+  width: 60%;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 24rpx;
+  border:0rpx solid red;
+  text-align: center;
+  color: rgba(238, 205, 141, 100);
+}
+
+.centenScroll{
+  /* calc:可以动态计算css的宽高，运算符左右两边必须加空格 */
+  height: calc(100vh - 160rpx);
+  border:2rpx solid red;
+}
+
+.centenItem{
+
+}

@@ -1,12 +1,11 @@
 {
   "pages": [
+    "pages/aboutUs/aboutUs",
+    "pages/index/index",
     "pages/toFormWarranty/toFormWarranty",
-    "pages/details/details",
    
     
-    "pages/index/index"
-   
-  
+    "pages/details/details"
    
   ],
   "window": {

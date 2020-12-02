@@ -1,0 +1,33 @@
+<import src="/template/myTemplate.wxml"></import>
+<view class="container" style="height: 100%;">
+  <!-- 导航 -->
+  <scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
+        品牌介绍
+      </view>
+    </view>
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 1?'active':'' }}" bindtap="changNav" data-id="1">
+        专利认证
+      </view>
+    </view>
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 2?'active':'' }}" bindtap="changNav" data-id="2">
+        售后保险
+      </view>
+    </view>
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 3?'active':'' }}" bindtap="changNav" data-id="3">
+        加入我们
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 内容列表 -->
+  <scroll-view scroll-y class="centenScroll" refresher-enabled>
+    <view class="centenItem">
+      
+    </view>
+  </scroll-view>
+</view>
