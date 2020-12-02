@@ -1,0 +1,11 @@
+<view class="formWarrantyContainer">
+  <view class="title-wrapper">
+    <view class="title">
+      质保录入信息
+    </view>
+    <view class="msg">
+      漆面装甲，高端汽车漆面保护膜
+    </view>
+  </view>
+
+</view>
