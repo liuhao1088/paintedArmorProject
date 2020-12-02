@@ -1,7 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/toFormWarranty/toFormWarranty"
+    "pages/toFormWarranty/toFormWarranty",
+    "pages/details/details",
+   
+    
+    "pages/index/index"
+   
   
    
   ],

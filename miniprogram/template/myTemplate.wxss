@@ -1,0 +1,30 @@
+.container {
+ 
+  background-color: #101010;
+} 
+
+.wrap {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.title-wrapper {
+  width: 85%;
+  text-align: center;
+  color: #fff;
+  border: 0rpx solid red;
+  margin-top: 44rpx;
+}
+
+.title {
+  width: 100%;
+  line-height: 66rpx;
+  font-size: 44rpx;
+}
+
+.msg {
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}

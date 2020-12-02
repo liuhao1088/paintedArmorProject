@@ -1,0 +1,46 @@
+<import src="/template/myTemplate.wxml"></import>
+<view class="container" style="height: 100%;">
+  <view class="wrap" style="width: 100%;">
+    <template is="detail" data="{{...item}}"></template>
+    <view class="wrapper">
+      <!-- 手机号 -->
+      <view class="box-wrapper">
+        <view class="tag-wrapper">手机号：</view>
+        <view class="content-wrapper">12546857954</view>
+      </view>
+      <!-- 车牌号 -->
+      <view class="box-wrapper">
+        <view class="tag-wrapper">车牌号：</view>
+        <view class="content-wrapper">12546857954</view>
+      </view>
+      <!-- 质保编码 -->
+      <view class="box-wrapper">
+        <view class="tag-wrapper">质保编码：</view>
+        <view class="content-wrapper">12546857954</view>
+      </view>
+      <!-- 当前状态 -->
+      <view class="box-wrapper">
+        <view class="tag-wrapper">当前状态：</view>
+        <view class="content-wrapper" style="color:#1EA287;">未过期</view>
+        <!-- <view class="content-wrapper" style="color:rgba(38, 38, 38, 100);;">已过期</view> -->
+      </view>
+      <!-- 质保期限 -->
+      <view class="box-wrapper">
+        <view class="tag-wrapper">质保期限：</view>
+        <view class="content-wrapper">12546857954</view>
+      </view>
+      <!-- 门店 -->
+      <view class="box-wrapper">
+        <view class="tag-wrapper">门店：</view>
+        <view class="content-wrapper">12546857954</view>
+      </view>
+
+
+    </view>
+  </view>
+
+  <view class="phone-wrapper">
+    联系电话：0755-2635468
+  </view>
+
+</view>

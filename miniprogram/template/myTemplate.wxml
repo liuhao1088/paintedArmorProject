@@ -1,0 +1,10 @@
+<template name="detail">
+  <view class="title-wrapper">
+    <view class="title">
+      {{title}}
+    </view>
+    <view class="msg">
+      {{msg}}
+    </view>
+  </view>
+</template>
