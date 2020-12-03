@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/aboutUs/aboutUs",
     "pages/toFormWarranty/toFormWarranty",
+    "pages/exclusiveSeries/exclusiveSeries",
     "pages/details/details"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

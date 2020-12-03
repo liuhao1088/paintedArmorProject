@@ -39,10 +39,23 @@ Page({
 
   toAboutUs(event){
     let index = event.currentTarget.dataset.id;
-    console.log(index);
     wx.navigateTo({
       url: '../../pages/aboutUs/aboutUs?index='+index,
     })
+  },
+
+  toSeries(event){
+    let index = event.currentTarget.dataset.id;
+    console.log(index);
+    if(index === 0){
+      wx.navigateTo({
+        url: '../../pages/exclusiveSeries/exclusiveSeries',
+      })
+    }else if(index === 1){
+
+    }else{
+
+    }
   },
 
   onLoad: function () {

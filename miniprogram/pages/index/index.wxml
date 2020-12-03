@@ -27,7 +27,7 @@
   <!-- 系列内容 -->
     <view class="content" wx:for="{{contentList}}" wx:key="id">
       <view class="main">
-        <view class="img">
+        <view class="img" bindtap="toSeries" data-id="{{index}}">
           <image mode="widthFix"
             src="{{item.lbtUrl}}" />
         </view>

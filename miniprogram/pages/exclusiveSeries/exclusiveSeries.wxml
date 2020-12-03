@@ -1,0 +1,2 @@
+<import src="/template/myTemplate.wxml"></import>
+<template is="seriesDetails" data="{{...item}}"></template>
