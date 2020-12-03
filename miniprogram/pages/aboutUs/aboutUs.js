@@ -9,7 +9,7 @@ Page({
       title: '漆面装甲',
       msg: '漆面装甲，高端汽车漆面保护膜'
     },
-    navId: 2,
+    navId: 0,
     patentList: [{
         imgUrl: 'https://img11.360buyimg.com/ddimg/jfs/t1/143930/28/16581/3347/5fc86172Ecd3027c2/a079682c16c4de4e.jpg',
         text: '抗划痕聚氨酯膜'

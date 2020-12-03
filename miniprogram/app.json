@@ -1,9 +1,7 @@
 {
   "pages": [
-    "pages/aboutUs/aboutUs",
     "pages/index/index",
-    
-    
+    "pages/aboutUs/aboutUs",
     "pages/toFormWarranty/toFormWarranty",
     "pages/details/details"
   ],
