@@ -2,18 +2,17 @@
   "pages": [
     "pages/aboutUs/aboutUs",
     "pages/index/index",
-    "pages/toFormWarranty/toFormWarranty",
-   
     
+    
+    "pages/toFormWarranty/toFormWarranty",
     "pages/details/details"
-   
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#101010",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#101010",
     "navigationBarTitleText": "漆面装甲",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
 }

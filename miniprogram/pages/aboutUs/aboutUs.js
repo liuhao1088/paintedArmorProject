@@ -9,7 +9,7 @@ Page({
       title:'漆面装甲',
       msg:'漆面装甲，高端汽车漆面保护膜'
     },
-    navId:0
+    navId:3
   },
   changNav(event){
     let navId = event.currentTarget.dataset.id;
@@ -22,7 +22,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let navId = options.index;
+    console.log(navId)
+    this.setData({
+      navId
+    })
   },
 
   /**

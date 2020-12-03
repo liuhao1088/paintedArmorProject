@@ -8,3 +8,10 @@
     </view>
   </view>
 </template>
+
+<template name="footer">
+  <view class="footer">
+      <image mode="widthFix"
+            src="https://img12.360buyimg.com/ddimg/jfs/t1/132861/28/18179/78658/5fc71c86E1951d453/8a1ee0da049afb6f.jpg" />
+    </view>
+</template>

@@ -11,17 +11,12 @@ Page({
     ],
     contentList: [{
         lbtUrl: 'https://img13.360buyimg.com/ddimg/jfs/t1/152970/34/8035/165440/5fc7064bEcdc64de8/5618ac3a84f74e7a.png',
-        // 'https://img11.360buyimg.com/ddimg/jfs/t1/134780/28/18151/148043/5fc71f52E7e078d8b/f7d635e7603c64f8.png',
-        // 'https://img10.360buyimg.com/ddimg/jfs/t1/148562/17/16545/118098/5fc71f5eE108fd0b6/0e9beffa78818be9.png'
-
         title: '尊享系列',
         name: 'Exclusive series',
         msg: '抗划能力、抗腐蚀能力、高修复能力'
       },
       {
         lbtUrl: 'https://img11.360buyimg.com/ddimg/jfs/t1/134780/28/18151/148043/5fc71f52E7e078d8b/f7d635e7603c64f8.png',
-        // 'https://img10.360buyimg.com/ddimg/jfs/t1/148562/17/16545/118098/5fc71f5eE108fd0b6/0e9beffa78818be9.png'
-
         title: '荣耀系列',
         name: 'Glory series',
         msg: '高稳定性、高抗污性、高抗腐蚀性、高抗黄变性、高划水性'
@@ -39,6 +34,14 @@ Page({
   toFormWarranty() {
     wx.navigateTo({
       url: '../../pages/toFormWarranty/toFormWarranty',
+    })
+  },
+
+  toAboutUs(event){
+    let index = event.currentTarget.dataset.id;
+    console.log(index);
+    wx.navigateTo({
+      url: '../../pages/aboutUs/aboutUs?index='+index,
     })
   },
 

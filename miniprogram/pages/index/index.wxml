@@ -1,10 +1,10 @@
-<!--index.wxml-->
+<import src="/template/myTemplate.wxml"></import>
 <view class="container">
   <view class="header">
     <!-- 轮播图 -->
     <view class="banner">
       <swiper indicator-dots autoplay circular style="height:100%;">
-        <swiper-item wx:for="{{imgUrl}}" wx:key="imgUrl">
+        <swiper-item wx:for="{{imgUrl}}" wx:key="imgUrl" bindtap="toAboutUs" data-id="{{index}}">
           <image mode="widthFix" src="{{item}}" />
         </swiper-item>
       </swiper>
@@ -49,22 +49,6 @@
       </view>
     </view>
 
-    <view class="footer">
-      <image mode="widthFix"
-            src="https://img12.360buyimg.com/ddimg/jfs/t1/132861/28/18179/78658/5fc71c86E1951d453/8a1ee0da049afb6f.jpg" />
-    </view>
-
-
-  <!-- 上传图片 -->
-  <!--  <view class="uploader">-->
-  <!--    <view class="uploader-text" bindtap="doUpload">-->
-  <!--      <text>上传图片</text>-->
-  <!--    </view>-->
-  <!--    <view class="uploader-container" wx:if="{{imgUrl}}">-->
-  <!--      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>-->
-  <!--    </view>-->
-  <!--  </view>-->
-
-
+    <template is="footer" data="{{...item}}"></template>
 
 </view>

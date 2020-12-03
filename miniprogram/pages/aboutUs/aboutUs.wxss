@@ -1,41 +1,160 @@
 @import "/template/myTemplate.wxss";
-.navScroll{
+
+.navScroll {
   display: flex;
   white-space: nowrap;
   height: 80rpx;
   background-color: rgba(83, 83, 83, 100);
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
-.navScroll .navItem{
+.navScroll .navItem {
   width: calc(100%/4);
   font-size: 20rpx;
-  border:0rpx solid red;
+  border: 0rpx solid red;
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
-.navScroll .navItem .active{
+.navScroll .navItem .active {
   background-color: rgba(238, 205, 141, 100);
   color: rgba(255, 255, 255, 100);
 }
 
-.navScroll .navContent{
+.navScroll .navContent {
   width: 60%;
   height: 48rpx;
   line-height: 48rpx;
   border-radius: 24rpx;
-  border:0rpx solid red;
+  border: 0rpx solid red;
   text-align: center;
   color: rgba(238, 205, 141, 100);
 }
 
-.centenScroll{
-  /* calc:可以动态计算css的宽高，运算符左右两边必须加空格 */
-  height: calc(100vh - 160rpx);
-  border:2rpx solid red;
+.centenItem {
+  padding-top: 80rpx;
+  display: none;
+  color: #fff;
 }
 
-.centenItem{
+.centenActive {
+  display: block;
+}
+
+/* 品牌介绍 */
+.imgItem {
+  width: 90%;
+  margin-top: 40rpx;
+}
+
+.contenItem {
+  width: 80%;
+  font-size: 36rpx;
+  color: rgba(255, 255, 255, 100);
+  opacity: 0.65;
+}
+
+/* 加入我们 */
+.titleItem {
+  line-height: 40rpx;
+  width: 100%;
+  opacity: 0.9;
+  color: rgba(38, 38, 38, 100);
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 32rpx;
+
+}
+
+.wrapper {
+  width: 90%;
+  /* height: 600rpx; */
+  border-radius: 20rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  background-color: #fff;
+  margin-top: 70rpx;
+  border: 1px solid rgba(255, 255, 255, 100);
+}
+
+.box-wrapper {
+  width: 100%;
+  height: 68rpx;
+  margin-top: 40rpx;
+  border: 0rpx solid white;
+}
+
+.tag-wrapper {
+  width: 40%;
+  line-height: 68rpx;
+  font-size: 36rpx;
+  text-align: center;
+  float: left;
+  position: relative;
+}
+
+.input-wrapper {
+  width: 45%;
+  height: 100%;
+  border-radius: 34rpx;
+  box-shadow: 2rpx 2rpx 10rpx 0px rgba(0, 0, 0, 0.4);
+  border: 2rpx solid rgba(255, 255, 255, 100);
+  background-color: #fff;
+  margin-left: 40rpx;
+  float: left;
+}
+
+.input-wrapper input {
+  height: 100%;
+  width: 100%;
+  color: rgba(151, 151, 151, 100);
+  margin-left: 30rpx;
+}
+
+.submit-wrapper {
+  width: 100%;
+  height: 60rpx;
+  border: 0rpx solid red;
+  margin-top: 64rpx;
+  padding-bottom: 60rpx;
+}
+
+button {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30px;
+  width: 50%;
+  margin: auto;
+  background-color: rgba(208, 169, 92, 100);
+  color: rgba(255, 255, 255, 100);
+  font-size: 28rpx;
+  box-shadow: 4rpx 4rpx 12rpx 0px rgba(0, 0, 0, 0.4);
+}
+
+.textItem {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 40rpx;
+  /* font-size: 28rpx; */
+}
+
+.codeItem {
+  width: 100%;
+  height: 100rpx;
+  border: 0rpx solid red;
+  padding-bottom: 30rpx;
+}
+
+.codeItem .codeImg {
+  height: 100%;
+  width: 100rpx;
+  margin: auto;
+  border: 2rpx solid red
+}
+
+.codeItem image {
 
 }
