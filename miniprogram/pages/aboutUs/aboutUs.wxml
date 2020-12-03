@@ -25,6 +25,7 @@
   </scroll-view>
 
   <!-- 内容列表 -->
+  <!-- 品牌介绍 -->
   <view class="centenItem {{navId == 0?'centenActive':'' }}">
     <view class="wrap" style="padding-bottom: 60rpx;">
       <template is="detail" data="{{...item}}"></template>
@@ -42,21 +43,67 @@
          漆面装甲高端汽车漆面保护膜作为汽车美容市场的新贵，完全按照国家工信部《车身贴》、《汽车漆面保护膜》行业标准生产，通过了SGS国际商检和ITS双重检验。其强大的产品性能，也使之成为汽车后市场广大经销商认可的专项盈利项目。
       </text>
     </view>
-
-
-
   </view>
+  <!-- 专利认证 -->
   <view class="centenItem {{navId == 1?'centenActive':'' }}">
     <view class="wrap" style="padding-bottom: 60rpx;">
       <template is="detail" data="{{...item}}"></template>
-    </view>
-  </view>
 
-  <view class="centenItem {{navId == 2?'centenActive':'' }}">
-    <view class="wrap" style="padding-bottom: 60rpx;">
-      <template is="detail" data="{{...item}}"></template>
+      <view class="wrapper" style="margin-top: 34rpx;border:none;">
+        <view class="patentItem">漆面装甲拥有以下多项原料及其制备技术专利</view>
+      </view>
+
+      <view class="listItem">
+        <view class="item" wx:for="{{patentList}}" wx:key="id">
+          <view class="listImg">
+            <image src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="patentContenItem">
+            {{item.text}}
+          </view>
+        </view>
+      </view>
+
+      <view class="wrapper" style="margin-top: 34rpx;border:none;">
+        <view class="patentItem">并且通过SGS国际商检和ITS双重检验</view>
+      </view>
+
+      <view class="certificationImgItem">
+        <view class="certificationImg"></view>
+        <view class="certificationImg"></view>
+      </view>
+
+
+
+
+
     </view>
   </view>
+  <!-- 售后保险 -->
+  <view class="centenItem {{navId == 2?'centenActive':'' }}">
+    <view class="wrap" style="padding-bottom: 90rpx;">
+      <template is="detail" data="{{...item}}"></template>
+
+      <view class="wrapper" style="margin-top: 34rpx;border:none;background-color:#101010;">
+        <view class="patentItem" style="width: 50%;margin: auto;">三重保险，质量无忧</view>
+      </view>
+
+      <view class="insuranceItem" wx:for="{{insuranceList}}" wx:key="id">
+        <view class="item">
+          <view class="listImg">
+            <image
+              src="{{item.insuranceUrl}}">
+            </image>
+          </view>
+          <view class="patentContenItem">
+            {{item.insuranceText}}
+          </view>
+        </view>
+        <text class="contenItem">{{item.insuranceContent}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 加入我们 -->
   <view class="centenItem {{navId == 3?'centenActive':'' }}">
     <view class="wrap" style="padding-bottom: 60rpx;">
       <template is="detail" data="{{...item}}"></template>

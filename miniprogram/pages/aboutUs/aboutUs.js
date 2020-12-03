@@ -5,13 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item:{
-      title:'漆面装甲',
-      msg:'漆面装甲，高端汽车漆面保护膜'
+    item: {
+      title: '漆面装甲',
+      msg: '漆面装甲，高端汽车漆面保护膜'
     },
-    navId:3
+    navId: 2,
+    patentList: [{
+        imgUrl: 'https://img11.360buyimg.com/ddimg/jfs/t1/143930/28/16581/3347/5fc86172Ecd3027c2/a079682c16c4de4e.jpg',
+        text: '抗划痕聚氨酯膜'
+      },
+      {
+        imgUrl: 'https://img13.360buyimg.com/ddimg/jfs/t1/152435/38/8219/7786/5fc862deE53a2bbd8/9699091463d172b4.jpg',
+        text: '抗划痕漆面保护膜'
+      },
+      {
+        imgUrl: 'https://img12.360buyimg.com/ddimg/jfs/t1/150932/18/8985/8488/5fc862ebE4eda2b7f/1100a5452971de9b.jpg',
+        text: '抗断胶汽车保护膜'
+      },
+      {
+        imgUrl: 'https://img13.360buyimg.com/ddimg/jfs/t1/138511/38/16842/5167/5fc862fdE24cb8374/129f344aaeb657b0.jpg',
+        text: '聚氨酯膜的表面改性剂'
+      }, {
+        imgUrl: 'https://img11.360buyimg.com/ddimg/jfs/t1/133296/8/18420/6921/5fc86316E9676043a/753f0f7ed2584f0e.jpg',
+        text: '抗断胶抗划痕漆面保护膜'
+      }
+    ],
+    insuranceList:[
+      {
+        insuranceUrl:'https://img11.360buyimg.com/ddimg/jfs/t1/143930/28/16581/3347/5fc86172Ecd3027c2/a079682c16c4de4e.jpg',
+        insuranceText:'产品质量保险',
+        insuranceContent:'产品已委托专业保险公司参与质保，在相关质保期内，因产品质量问题而造成车辆或第三方财产损失，均由保险公司进行赔偿！'
+      },
+      {
+        insuranceUrl:'https://img13.360buyimg.com/ddimg/jfs/t1/152435/38/8219/7786/5fc862deE53a2bbd8/9699091463d172b4.jpg',
+        insuranceText:'商业保险',
+        insuranceContent:'产品内含漆面膜商业险，投保成功后，一年之内，投保车辆发生意外事故后，符合保险理赔标准，保险公司和漆面装甲品牌商负责赔付受损部位所需漆面膜！（可延保）'
+      },
+      {
+        insuranceUrl:'https://img12.360buyimg.com/ddimg/jfs/t1/150932/18/8985/8488/5fc862ebE4eda2b7f/1100a5452971de9b.jpg',
+        insuranceText:'电子质保',
+        insuranceContent:'施工后，可上传电子质保，车主、销售方、品牌商三方查询，信息清晰明确，售后无忧！'
+      },
+    ]
   },
-  changNav(event){
+  changNav(event) {
     let navId = event.currentTarget.dataset.id;
     this.setData({
       navId,

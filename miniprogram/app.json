@@ -8,7 +8,6 @@
     "pages/details/details"
   ],
   "window": {
-    "backgroundColor": "#101010",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#101010",
     "navigationBarTitleText": "漆面装甲",
