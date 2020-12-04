@@ -34,13 +34,10 @@
         <image mode="widthFix"
           src="https://img13.360buyimg.com/ddimg/jfs/t1/139402/10/16741/18043/5fc84ebcE5f1d0e5b/a3e0f7f79ea65e5e.jpg" />
       </view>
-
-      <text class="contenItem">
-             
-         漆面装甲，高端汽车漆面保护膜专业品牌运营商，依托于云林膜业十数年的技术沉淀，创新并应用最适合中国环境的TPH/TPU基材和高分子氟碳晶化涂层技术工艺制作，产品稳定、抗冲击性能一流，可以最大限度的保护原厂车漆免受外力损伤。 
-         
-             
-         漆面装甲高端汽车漆面保护膜作为汽车美容市场的新贵，完全按照国家工信部《车身贴》、《汽车漆面保护膜》行业标准生产，通过了SGS国际商检和ITS双重检验。其强大的产品性能，也使之成为汽车后市场广大经销商认可的专项盈利项目。
+      <text class="contenItem"> 
+            漆面装甲，高端汽车漆面保护膜专业品牌运营商，依托于云林膜业十数年的技术沉淀，创新并应用最适合中国环境的TPH/TPU基材和高分子氟碳晶化涂层技术工艺制作，产品稳定、抗冲击性能一流，可以最大限度的保护原厂车漆免受外力损伤。 
+       
+           漆面装甲高端汽车漆面保护膜作为汽车美容市场的新贵，完全按照国家工信部《车身贴》、《汽车漆面保护膜》行业标准生产，通过了SGS国际商检和ITS双重检验。其强大的产品性能，也使之成为汽车后市场广大经销商认可的专项盈利项目。
       </text>
     </view>
   </view>
@@ -69,8 +66,12 @@
       </view>
 
       <view class="certificationImgItem">
-        <view class="certificationImg"></view>
-        <view class="certificationImg"></view>
+        <view class="certificationImg">
+          <image mode="widthFix" src="https://img10.360buyimg.com/ddimg/jfs/t1/136355/12/18504/24556/5fc9959bE3d355cbf/b433391c90eeecc6.png"></image>
+        </view>
+        <view class="certificationImg">
+          <image mode="widthFix" src="https://img12.360buyimg.com/ddimg/jfs/t1/144118/12/17088/53496/5fc995dcE37d1be75/4de0478956e22ba5.png"></image>
+        </view>
       </view>
 
 
@@ -147,7 +148,7 @@
 
         <view class="codeItem">
           <view class="codeImg">
-            <image src=""></image>
+            <image mode="widthFix" src="https://ae04.alicdn.com/kf/H320184699f6b4b16a88969d4fa0a9a73G.jpg"></image>
           </view>
         </view>
 
