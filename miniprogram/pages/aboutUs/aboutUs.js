@@ -95,6 +95,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取屏幕高度
     var windowHeight = wx.getSystemInfoSync().windowHeight;
     this.setData({
       windowHeight
