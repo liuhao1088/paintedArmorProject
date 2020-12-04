@@ -75,7 +75,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   float: left;
-  font-family: 'Noto Fonts';
+  font-family: 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', ‘Source Han Serif’, source-han-serif-sc, serif;
 }
 
 .content:nth-child(4) {
