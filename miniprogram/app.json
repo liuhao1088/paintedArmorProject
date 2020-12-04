@@ -4,6 +4,8 @@
     "pages/aboutUs/aboutUs",
     "pages/toFormWarranty/toFormWarranty",
     "pages/exclusiveSeries/exclusiveSeries",
+    "pages/goldDiamondSeries/goldDiamondSeries",
+    "pages/glorySeries/glorySeries",
     "pages/details/details"
     
   ],

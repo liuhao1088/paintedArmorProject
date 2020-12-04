@@ -75,7 +75,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   float: left;
-   font-family: 'Noto Fonts'; 
+  font-family: 'Noto Fonts';
 }
 
 .content:nth-child(4) {
@@ -145,4 +145,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-

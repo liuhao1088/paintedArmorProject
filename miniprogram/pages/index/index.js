@@ -7,7 +7,7 @@ Page({
       'https://img11.360buyimg.com/ddimg/jfs/t1/135883/24/18012/126516/5fc70386Ee8aea84e/f9c4e7a07fda64f2.jpg',
       'https://img13.360buyimg.com/ddimg/jfs/t1/154535/38/8073/185464/5fc703a2E59c4ba42/cc46fe45e22b60e9.jpg',
       'https://img11.360buyimg.com/ddimg/jfs/t1/154714/13/8088/113225/5fc703afE629a4963/4c992468653dff63.jpg',
-      'https://img14.360buyimg.com/ddimg/jfs/t1/148024/4/16571/43292/5fc703c2E4ef6922d/67e65822e8e5fe8f.jpg',
+      'https://img11.360buyimg.com/ddimg/jfs/t1/154408/13/8332/82312/5fc98d76Ee1daedd2/f30a8ada63f125a7.jpg',
     ],
     contentList: [{
         lbtUrl: 'https://img13.360buyimg.com/ddimg/jfs/t1/152970/34/8035/165440/5fc7064bEcdc64de8/5618ac3a84f74e7a.png',
@@ -22,8 +22,7 @@ Page({
         msg: '高稳定性、高抗污性、高抗腐蚀性、高抗黄变性、高划水性'
       },
       {
-        lbtUrl: 
-        'https://img10.360buyimg.com/ddimg/jfs/t1/148562/17/16545/118098/5fc71f5eE108fd0b6/0e9beffa78818be9.png',
+        lbtUrl: 'https://img10.360buyimg.com/ddimg/jfs/t1/148562/17/16545/118098/5fc71f5eE108fd0b6/0e9beffa78818be9.png',
         title: '金钻系列',
         name: 'Gold Drill series',
         msg: '超强抗腐蚀、抗黄变、抗静电、抗老化'
@@ -37,23 +36,28 @@ Page({
     })
   },
 
-  toAboutUs(event){
+  toAboutUs(event) {
     let index = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../pages/aboutUs/aboutUs?index='+index,
+      url: '../../pages/aboutUs/aboutUs?index=' + index,
     })
   },
 
-  toSeries(event){
+  toSeries(event) {
     let index = event.currentTarget.dataset.id;
     console.log(index);
-    if(index === 0){
+    if (index === 0) {
       wx.navigateTo({
         url: '../../pages/exclusiveSeries/exclusiveSeries',
       })
-    }else if(index === 1){
-
-    }else{
+    } else if (index === 1) {
+      wx.navigateTo({
+        url: '../../pages/glorySeries/glorySeries',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../../pages/goldDiamondSeries/goldDiamondSeries',
+      })
 
     }
   },

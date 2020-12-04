@@ -20,10 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3081890-877b-485a-b73e-627627a62a81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/miniprogram/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/app.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/app.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/index/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniprogram/pages/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/index/index.wxss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +62,7 @@
       <updated>1606790155029</updated>
       <workItem from="1606790156108" duration="4537000" />
       <workItem from="1606871277928" duration="1466000" />
+      <workItem from="1606982947357" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="+更新">
       <created>1606810817493</created>
@@ -97,10 +94,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="+更新" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1606815865216">
+    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1606982974337">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606815865216" />
+    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606982974337" />
     <state x="270" y="56" key="SettingsEditor" timestamp="1606790637815">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
