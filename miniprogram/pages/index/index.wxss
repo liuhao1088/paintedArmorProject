@@ -66,6 +66,10 @@
   font-size: 36rpx;
   font-weight: 700;
 }
+@font-face {
+  font-family: 'Siyuan Song';
+  src: url('https://fnck-20200914-1303154931.cos.ap-guangzhou.myqcloud.com/%E5%AD%97%E4%BD%93/%E6%80%9D%E6%BA%90%E5%AE%8B%E4%BD%93.ttf?q-sign-algorithm=sha1&q-ak=AKIDHL7fPrFwXrtdX9SYLq75j5BxTeFbR3KK&q-sign-time=1607074363;88006987963&q-key-time=1607074363;88006987963&q-header-list=&q-url-param-list=&q-signature=276893ef116b593bf8e2f8908b4032c204a98bc3');
+ }
 
 /* 系列内容 */
 .content {
@@ -75,7 +79,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   float: left;
-  font-family: 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', ‘Source Han Serif’, source-han-serif-sc, serif;
+  font-family: 'Siyuan Song';
 }
 
 .content:nth-child(4) {

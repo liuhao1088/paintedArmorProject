@@ -1,6 +1,18 @@
 //app.js
 App({
   onLaunch: function () {
+    // wx.loadFontFace({
+    //   global: true,
+    //   family: 'Siyuan Song',
+    //   source: 'url("")',
+    //   success: res => {
+    //     console.log('font load success', res)
+    //   },
+    //   fail: err => {
+    //     console.log('font load fail', err)
+    //   }
+    // })
+
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
