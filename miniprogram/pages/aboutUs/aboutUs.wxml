@@ -1,5 +1,5 @@
 <import src="/template/myTemplate.wxml"></import>
-<view class="container">
+<view class="container" style="height: {{height}};">
   <!-- 导航 -->
   <scroll-view enable-flex scroll-with-animation class="navScroll">
     <view id="{{'scroll'+ item.id}}" class="navItem">
@@ -151,8 +151,8 @@
         <view class="textItem">或</view>
 
         <view class="codeItem">
-          <view class="codeImg">
-            <image mode="widthFix" src="https://ae04.alicdn.com/kf/H320184699f6b4b16a88969d4fa0a9a73G.jpg"></image>
+          <view class="codeImg" bindtap='previewImg'>
+            <image mode="widthFix" src="{{codeUrl}}"></image>
           </view>
         </view>
 

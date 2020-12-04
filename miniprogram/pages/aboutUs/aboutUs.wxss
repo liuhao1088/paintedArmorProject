@@ -1,11 +1,8 @@
 @import "/template/myTemplate.wxss";
-page{
-    height: 100vh;
+page {
+  height: 100vh;
 }
 
-.container {
-  height: 100%;
-}
 
 .navScroll {
   display: flex;
