@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/toFormWarranty/toFormWarranty",
+    "pages/test/test",
+   
     "pages/index/index",
     "pages/aboutUs/aboutUs",
-    "pages/toFormWarranty/toFormWarranty",
     "pages/exclusiveSeries/exclusiveSeries",
     "pages/goldDiamondSeries/goldDiamondSeries",
     "pages/glorySeries/glorySeries",
     "pages/details/details"
     
-  ],
+  ], 
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#101010",

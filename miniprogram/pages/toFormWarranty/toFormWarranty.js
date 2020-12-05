@@ -1,4 +1,4 @@
-// pages/toFormWarranty/toFormWarranty.js
+const db =wx.cloud.database();
 Page({
 
   /**
@@ -13,24 +13,8 @@ Page({
 
     //年份
     index: 0,
-    array: ['2020', '2021', '2022', '2023'],
-    dateArray: [{
-        id: 0,
-        name: '2020'
-      },
-      {
-        id: 1,
-        name: '2021'
-      },
-      {
-        id: 2,
-        name: '2022'
-      },
-      {
-        id: 3,
-        name: '2023'
-      }
-    ],
+    array: [],
+    dateArray: [],
     //品牌
     brandIndex: 0,
     brandArray: ['劳斯莱斯', '宝马', '保时捷', '宾利'],
@@ -115,11 +99,32 @@ Page({
     })
   },
 
+  //查询时间
+  getDtae(){
+    db.collection('date').get({
+      //如果查询成功的话
+      success: res => {
+        //这一步很重要，给ne赋值，没有这一步的话，前台就不会显示值
+        console.log(res)
+        let length = res.data.length;
+        let dateList = [];
+        for(let i=0; i<length;i++){
+          dateList.push(res.data[i].name)
+        }
+        this.setData({
+          array:dateList,
+          dateArray: res.data
+        })
+        console.log(dateList)
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getDtae();
   },
 
   /**

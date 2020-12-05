@@ -64,17 +64,17 @@
 
           <!-- 品牌 -->
           <view class="picker-nav">
-            <picker bindchange="bindBrandChange" value="{{index}}" range="{{brandArray}}">
+            <picker bindchange="bindBrandChange" value="{{brandIndex}}" range="{{brandArray}}">
               <view class="years">
-                {{brandArray[index]}}
+                {{brandArray[brandIndex]}}
               </view>
             </picker>
           </view>
           <!-- 车型 -->
           <view class="picker-nav">
-            <picker bindchange="bindModelChange" value="{{index}}" range="{{modelArray}}">
+            <picker bindchange="bindModelChange" value="{{modelIndex}}" range="{{modelArray}}">
               <view class="years">
-                {{modelArray[index]}}
+                {{modelArray[modelIndex]}}
               </view>
             </picker>
           </view>
