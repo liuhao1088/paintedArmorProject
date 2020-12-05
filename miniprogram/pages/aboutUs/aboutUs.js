@@ -1,4 +1,5 @@
 // pages/aboutUs/aboutUs.js
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -48,7 +49,11 @@ Page({
     ],
     codeUrl: 'https://ae04.alicdn.com/kf/H320184699f6b4b16a88969d4fa0a9a73G.jpg', //二维码
     height: '100%',
-    windowHeight:''
+    windowHeight:'',
+    shop_name:'',
+    address:'',
+    person:'',
+    phone:''
   },
   changNav(event) {
     let navId = event.currentTarget.dataset.id;
@@ -108,7 +113,103 @@ Page({
       navId
     })
   },
+  inputShopname:function(e){
+    this.setData({
+      shop_name:e.detail.value
+    })
+  },
+  inputPerson:function(e){
+    this.setData({
+      person:e.detail.value
+    })
+  },
+  inputPhone:function(e){
+    this.setData({
+      phone:e.detail.value
+    })
+  },
+  chooseLocation: function (e) {
+    this.setData({
+      address:e.detail.value
+    })
+    /*var that = this;
+    wx.chooseLocation({
+      success: function (res) {
+        console.log(res)
+        let addressJson = res;
+        wx.setStorageSync('addressJson',addressJson)
+        that.setData({
+          address: res.address
+        })
+      },
+    })*/
+  },
+  //提交
+  async submit() {
+    var that = this;
+    if (that.data.shop_name !== "" && that.data.address !== ""&& that.data.phone !== "") {
+      wx.showLoading({
+        title: '提交中，请稍等',
+      })
+      that.add();
 
+    } else {
+      wx.showModal({
+        showCancel: false,
+        title: '请填写完整内容'
+      })
+    }
+
+  },
+  
+  add: function () {
+    var that = this;
+    const creation_date = util.formatTime(new Date())
+    let addressJson=wx.getStorageSync('addressJson')
+    wx.cloud.callFunction({
+      name: "collectionAdd", //
+      data: {
+        collection: 'shop', 
+        addData: {
+          creation_date: creation_date,
+          shop_name: that.data.shop_name,
+          address: that.data.address,
+          //lat: addressJson.latitude,
+          //lon: addressJson.longitude,
+          address_name:that.data.address,
+          //detail:that.data.detail,
+          person: that.data.person,
+          phone: that.data.phone,
+          creation_timestamp: Date.parse(creation_date.replace(/-/g, '/')) / 1000,
+        },
+
+      }
+    }).then(res => {
+      console.log('更新数据库成功', res)
+      wx.hideLoading({
+        success: (res) => {},
+      })
+      wx.showToast({
+        title: '提交成功',
+        icon: 'success',
+        duration: 2000
+      })
+      setTimeout(function () {
+        that.setData({
+          navId: 0,
+          address:"",phone:'',person:'',shop_name:''
+        })
+      }, 2000)
+    }).catch(res => {
+      wx.hideLoading({
+        success: (res) => {},
+      })
+      wx.showModal({
+        showCancel: false,
+        title: '添加失败，请重试'
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
