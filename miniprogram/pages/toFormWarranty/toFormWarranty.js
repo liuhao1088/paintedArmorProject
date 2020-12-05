@@ -1,4 +1,5 @@
-const db =wx.cloud.database();
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -85,39 +86,44 @@ Page({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success (res) {
+      success(res) {
         console.log(res)
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
       }
     })
   },
-  toDetails(evevt){
-    
+  toDetails(evevt) {
     wx.navigateTo({
       url: '../../pages/details/details',
     })
   },
 
   //查询时间
-  getDtae(){
-    db.collection('date').get({
-      //如果查询成功的话
-      success: res => {
-        //这一步很重要，给ne赋值，没有这一步的话，前台就不会显示值
-        console.log(res)
-        let length = res.data.length;
-        let dateList = [];
-        for(let i=0; i<length;i++){
-          dateList.push(res.data[i].name)
+  async getDtae() {
+    let that = this;
+    let countResult = await db.collection('date').count()
+    let total = countResult.total
+    let batchTimes = Math.ceil(total / 20); //获取需要获取几次 
+    let dateList = [];
+    let list = [];
+    //初次循环获取云端数据库的分次数的promise数组
+    for (let i = 0; i < batchTimes; i++) {
+      db.collection('date').skip(i * 20).get({
+        success: function (res) {
+          console.log(res.data)
+          for (let j = 0; j < res.data.length; j++) {
+            dateList.push(res.data[j].name);
+            list.push(res.data[j]);
+          }
+          console.log(dateList)
+          that.setData({
+            array: dateList,
+            dateArray: list
+          })
         }
-        this.setData({
-          array:dateList,
-          dateArray: res.data
-        })
-        console.log(dateList)
-      }
-    })
+      })
+    }
   },
 
   /**
