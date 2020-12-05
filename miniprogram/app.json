@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/toFormWarranty/toFormWarranty",
-    "pages/test/test",
     "pages/aboutUs/aboutUs",
     "pages/exclusiveSeries/exclusiveSeries",
     "pages/goldDiamondSeries/goldDiamondSeries",
@@ -19,7 +18,6 @@
     "pages/manage/shop/edit",
     "pages/manage/shop/lookup",
     "pages/details/details"
-    
   ], 
   "window": {
     "backgroundTextStyle": "light",
