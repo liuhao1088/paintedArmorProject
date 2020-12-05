@@ -27,8 +27,8 @@ Page({
         name: 'Gold Drill series',
         msg: '超强抗腐蚀、抗黄变、抗静电、抗老化'
       }
-    ]
-
+    ],
+    searchContent:''
   },
   toFormWarranty() {
     wx.navigateTo({
@@ -61,10 +61,30 @@ Page({
 
     }
   },
-  
-
-  onLoad: function () {
-    
+  //搜索
+  handleInputChange(event){
+    console.log('picker发送选择改变，携带值为', event.detail.value)
+    this.setData({
+      searchContent: event.detail.value
+    })
+  },
+  toSearch(event){
+    let searchContent = this.data.searchContent;
+    if(!searchContent){
+      wx.showToast({
+        title: '请输入查询内容',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }else{
+      wx.showToast({
+        title: '暂无信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
   },
   /**
    * 生命周期函数--监听页面加载

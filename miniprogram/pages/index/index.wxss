@@ -51,8 +51,9 @@
 .search input {
   margin-left: 50rpx;
   height: 100%;
-  width: 75%;
   color: rgba(151, 151, 151, 100);
+  flex: 1;
+  float: left;
 }
 
 .placeholder {
@@ -61,10 +62,11 @@
 }
 
 .searchIcon {
-  position: absolute;
-  right: 40rpx;
+  width: 100rpx;
+  text-align: center;
   font-size: 36rpx;
   font-weight: 700;
+  float: right;
 }
 @font-face {
   font-family: 'Siyuan Song';

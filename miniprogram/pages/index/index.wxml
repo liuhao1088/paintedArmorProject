@@ -17,7 +17,7 @@
       <view class="search">
         <input type="text" value="{{searchContent}}" placeholder="质保查询（输入车牌号/手机号）" placeholder-class="placeholder"
           bindinput="handleInputChange" />
-        <text class="iconfont icon-search1 searchIcon"></text>
+        <text class="iconfont icon-search1 searchIcon" bindtap="toSearch"></text>
       </view>
       <view class="summary" bindtap="toFormWarranty">
         若您是初次选择漆面装甲，请点击此处录入您的质保信息
