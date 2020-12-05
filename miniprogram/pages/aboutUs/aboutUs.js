@@ -60,9 +60,15 @@ Page({
     let windowHeight = this.data.windowHeight;
     console.log(windowHeight)
     if (navId === '1') {
-      this.setData({
-        height: 'auto'
-      })
+      if(windowHeight > 700){
+        this.setData({
+          height: '100%'
+        })
+      }else{
+        this.setData({
+          height: 'auto'
+        })
+      }
     } else if (navId === '2') {
       if(windowHeight > 700){
         this.setData({
