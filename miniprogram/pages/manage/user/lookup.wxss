@@ -1,0 +1,2 @@
+/* miniprogram/pages/manage/user/lookup.wxss */
+@import "../car/lookup.wxss";

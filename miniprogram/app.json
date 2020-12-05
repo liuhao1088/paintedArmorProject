@@ -2,16 +2,22 @@
   "pages": [
     "pages/toFormWarranty/toFormWarranty",
     "pages/test/test",
-   
-    
-   
-    
     "pages/index/index",
-    
     "pages/aboutUs/aboutUs",
     "pages/exclusiveSeries/exclusiveSeries",
     "pages/goldDiamondSeries/goldDiamondSeries",
     "pages/glorySeries/glorySeries",
+    "pages/manage/manage",
+    "pages/manage/user/user",
+    "pages/manage/car/car",
+    "pages/manage/car/add",
+    "pages/manage/car/edit",
+    "pages/manage/car/lookup",
+    "pages/manage/user/lookup",
+    "pages/manage/shop/shop",
+    "pages/manage/shop/add",
+    "pages/manage/shop/edit",
+    "pages/manage/shop/lookup",
     "pages/details/details"
     
   ], 
@@ -20,6 +26,9 @@
     "navigationBarBackgroundColor": "#101010",
     "navigationBarTitleText": "漆面装甲",
     "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "authorize": "components/authorize/authorize"
   },
   "sitemapLocation": "sitemap.json"
 }

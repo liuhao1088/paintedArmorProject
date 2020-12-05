@@ -70,9 +70,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name:'getOpenid'
+    }).then(res=>{
+      app.globalData.openid=res.result.openid;
+    })
   },
+  toSign:function(){
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              console.log(res)
 
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo
+              })
+            }
+          })
+          wx.cloud.database().collection('user').where({_openid:app.globalData.openid}).get().then(res=>{
+            if(res.data[0].authority=='admin'){
+                wx.navigateTo({
+                  url: '/pages/manage/manage',
+                })
+            }
+          })
+        } else {
+          //打开授权登录页
+          this.selectComponent("#authorize").showModal();
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

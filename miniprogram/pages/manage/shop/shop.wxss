@@ -1,0 +1,2 @@
+/* miniprogram/pages/manage/shop/shop.wxss */
+@import "../car/car.wxss";

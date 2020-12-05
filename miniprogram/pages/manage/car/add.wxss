@@ -1,0 +1,2 @@
+/* miniprogram/pages/manage/coupon/add.wxss */
+@import "./edit.wxss"

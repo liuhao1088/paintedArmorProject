@@ -1,5 +1,5 @@
 <import src="/template/myTemplate.wxml"></import>
-<view class="container">
+<view class="container" bindlongtap="toManage">
   <view class="wrap" style="padding-bottom: 60rpx;">
     <template is="detail" data="{{...item}}"></template>
 

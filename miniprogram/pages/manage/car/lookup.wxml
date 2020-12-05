@@ -1,0 +1,66 @@
+<!--miniprogram/pages/manage/coupon/select.wxml-->
+<view class='background'>
+
+
+<view class='box row align-center'>
+  <view class='field align-center'>姓名</view>
+  <view class='input align-center' >{{name}}</view>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>手机号</view>
+  <view class='input align-center' >{{mobile}}</view>
+</view>
+
+<view class='box row align-center'>
+  <view class='field align-center'>车牌号</view>
+  <view class='input align-center' >{{number_plate}}</view>
+</view>
+
+
+<view class='box row align-center'>
+  <view class='field align-center'>质保编码</view>
+  <view class='input align-center' >{{code}}</view>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>车架号</view>
+  <view class='input align-center' >{{vin}}</view>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>门店</view>
+  <view class='input align-center' >{{shop}}</view>
+</view>
+
+<view class='box row align-center'>
+  <view class='field align-center'>年份</view>
+  <view class='input align-center' >{{year}}</view>
+
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>品牌</view>
+  <view class='input align-center' >{{brand}}</view>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>型号</view>
+  <view class='input align-center' >{{model}}</view>
+</view>
+<view class='box row align-center' style="height:100px">
+    <view class='field align-center'>验收单</view>
+    <view class="iconlist row" style="margin-top:5px;margin-bottom:5px;">
+      <view bindtap="previewCheck" style="" id="{{item}}" data-index="{{index}}" wx:for="{{tempFilePaths}}" wx:key="*this" >
+        <image class="addIcon" src="{{item}}" />
+      </view>
+    </view>
+  </view>
+<view style='border-bottom:1px #d9d9d9 solid;width:100%;'>
+  <view class='box row align-center' style="border-bottom:0px">
+    <view class='field align-center'>施工单</view>
+    <view class="iconlist row" style="margin-top:5px;margin-bottom:5px;">
+      <view bindtap="previewBuild" style="" id="{{item}}" data-index="{{index}}" wx:for="{{tempFilePaths2}}" wx:key="*this">
+        <image class="addIcon" src="{{item}}" />
+      </view>
+    </view>
+  </view>
+</view>
+
+
+</view>

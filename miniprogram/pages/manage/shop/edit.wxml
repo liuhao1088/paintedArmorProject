@@ -1,0 +1,35 @@
+<!--miniprogram/pages/manage/shop/edit.wxml-->
+<view class='background'>
+
+
+<view class='box row align-center'>
+  <view class='field align-center'>门店名称</view>
+  <input class='input align-center' value="{{shop_name}}" bindinput='inputShopname' placeholder='请输入门店名称'></input>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>门店地址</view>
+  <input class='input align-center' value='{{address}}' bindfocus="chooseLocation"
+    placeholder='请输入门店地址'></input>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>门牌号</view>
+  <input class='input align-center' value='{{detail}}' bindinput='inputDetail'
+    placeholder='请输入门牌号'></input>
+</view>
+<view class='box row align-center'>
+  <view class='field align-center'>联系人</view>
+  <input class='input align-center' value='{{person}}' bindinput='inputPerson'
+    placeholder='请输入联系人'></input>
+</view>
+
+
+<view style='border-bottom:1px #d9d9d9 solid;width:100%;'>
+  <view class='box row align-center' style="border-bottom:0px">
+    <view class='field align-center'>联系电话</view>
+  <input class='input align-center' type="number" value='{{phone}}' bindinput='inputPhone' placeholder='请输入联系电话'></input>
+  </view>
+</view>
+
+
+</view>
+<view class='form-btn' bindtap='submit'>保存门店</view>

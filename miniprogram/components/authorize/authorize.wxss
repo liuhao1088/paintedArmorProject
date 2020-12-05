@@ -1,0 +1,55 @@
+/* components/authorize/authorize.wxss */
+@import "../../app.wxss";
+.cu-modal{
+  
+}
+.cu-dialog{
+  height:400px;background:white;
+}
+.cu-bar{
+  
+}
+.text-black{
+  font-size: 28px;position: relative;right:10px;top:5px;
+}
+.modal-title{
+  position:absolute;left:20px;top:60px;font-size: 20px;font-weight: 700;color:black;letter-spacing:1.5px;
+}
+.modal-describe{
+  position:absolute;left:20px;top:105px;font-size: 13px;font-weight:700;color:rgb(156, 156, 156);letter-spacing:1px;
+}
+.modal-detail{
+  position:absolute;left:20px;top:140px;font-size: 11px;color:rgb(175, 170, 170);
+}
+.modal-detail text{
+  color:#F37336;
+}
+
+
+
+
+.btn1 {
+  width: 80%;
+  margin-top: 20rpx;
+  background-color: #F37336;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0; 
+}
+.btn-box{
+  position: absolute;bottom:50px;width:100%;
+}

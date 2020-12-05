@@ -1,0 +1,74 @@
+<!--miniprogram/pages/manage/coupon/add.wxml-->
+<view class='background'>
+
+
+  <view class='box row align-center'>
+    <view class='field align-center'>姓名</view>
+    <input class='input align-center' value="{{name}}" bindinput='inputname' placeholder='请输入姓名'></input>
+  </view>
+  <view class='box row align-center'>
+    <view class='field align-center'>手机号</view>
+    <input class='input align-center' type="number" value='{{mobile}}' bindinput='inputMobile'
+      placeholder='请输入手机号码'></input>
+  </view>
+
+  <view class='box row align-center'>
+    <view class='field align-center'>车牌号</view>
+    <input class='input align-center' value='{{number_plate}}' bindinput='inputNumberPlate'
+      placeholder='请输入车牌号'></input>
+  </view>
+
+  
+  <view class='box row align-center'>
+    <view class='field align-center'>质保编码</view>
+    <input class='input align-center' value='{{code}}' bindinput='inputCode' placeholder='请输入质保编码'></input>
+  </view>
+  <view class='box row align-center'>
+    <view class='field align-center'>车架号</view>
+    <input class='input align-center' value='{{vin}}' bindinput='inputVin' placeholder='请输入车架号'></input>
+  </view>
+  <view class='box row align-center'>
+    <view class='field align-center'>门店</view>
+    <input class='input align-center' value='{{shop}}' bindinput='inputShop' placeholder='请输入门店'></input>
+  </view>
+  
+  <view class='box row align-center'>
+    <view class='field align-center'>年份</view>
+    <picker style="padding-left: 15px;" class='align-center' mode="date" fields="year" value="{{year}}" start="1999"
+      end="2999" bindchange="datechange">
+      {{year}}
+    </picker>
+  
+  </view>
+  <view class='box row align-center'>
+    <view class='field align-center'>品牌</view>
+    <input class='input align-center' value='{{brand}}' bindinput='inputBrand' placeholder='请输入品牌'></input>
+  </view>
+  <view class='box row align-center'>
+    <view class='field align-center'>型号</view>
+    <input class='input align-center' value='{{model}}' bindinput='inputModel' placeholder='请输入型号'></input>
+  </view>
+  <view class='box row align-center' style="height:100px">
+      <view class='field align-center'>验收单</view>
+      <view class="iconlist row" style="margin-top:5px;margin-bottom:5px;">
+        <view bindtap="" style="" id="{{item}}" wx:for="{{tempFilePaths}}" wx:key="*this">
+          <image class="addIcon" src="{{item}}" />
+        </view>
+        <image class='addIcon align-center' src="/images/tianjia.png" bindtap="addImage"></image>
+      </view>
+    </view>
+  <view style='border-bottom:1px #d9d9d9 solid;width:100%;'>
+    <view class='box row align-center' style="border-bottom:0px">
+      <view class='field align-center'>施工单</view>
+      <view class="iconlist row" style="margin-top:5px;margin-bottom:5px;">
+        <view bindtap="" style="" id="{{item}}" wx:for="{{tempFilePaths2}}" wx:key="*this">
+          <image class="addIcon" src="{{item}}" />
+        </view>
+        <image class='addIcon align-center' src="/images/tianjia.png" bindtap="addImage2"></image>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+<view class='form-btn' bindtap='submit'>添加信息</view>

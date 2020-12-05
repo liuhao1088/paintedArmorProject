@@ -1,0 +1,8 @@
+<!--miniprogram/pages/manage/manage.wxml-->
+<view class="container">
+  <view style="height:10px;"></view>
+<view class='form-btn' bindtap='toCar'>车保管理</view>
+<view class='form-btn' bindtap='toUser'>用户管理</view>
+<view class='form-btn' bindtap='toShop'>门店管理</view>
+
+</view>

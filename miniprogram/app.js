@@ -15,5 +15,11 @@ App({
     }
 
     this.globalData = {}
-  }
+  },
+  globalData: {
+    openid:'',
+    loginState: true,//全局登录状态
+    navHeight: "",
+    
+  },
 })
