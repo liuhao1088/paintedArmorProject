@@ -1,33 +1,39 @@
 /**app.wxss**/
 @import "/static/iconfont/iconfont.wxss";
 @import './style/weui.wxss';
-@import './style/icon.wxss';
+/* @import './style/icon.wxss'; */
 @import './style/main.wxss';
-page{
+
+page {
   height: 100%;
 }
 
-.row{
+.row {
   display: flex;
   flex-direction: row;
 }
-.column{
+
+.column {
   display: flex;
   flex-direction: column;
 }
-.justify-center{
-  display: flex;justify-content: center;
+
+.justify-center {
+  display: flex;
+  justify-content: center;
 }
-.align-center{
-  display: flex;align-items: center;
+
+.align-center {
+  display: flex;
+  align-items: center;
 }
 
 
-image{
+image {
   width: 100%;
   height: 100%;
   vertical-align: middle;
-  text-align: center; 
+  text-align: center;
 }
 
 .footer {
@@ -35,7 +41,3 @@ image{
   float: left;
   background-color: #101010;
 }
-
-
-
-
