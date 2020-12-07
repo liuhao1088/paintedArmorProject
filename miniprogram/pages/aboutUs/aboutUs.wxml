@@ -1,7 +1,7 @@
 <import src="/template/myTemplate.wxml"></import>
 <view class="container" style="height: {{height}};">
   <!-- 导航 -->
-  <scroll-view enable-flex scroll-with-animation class="navScroll">
+  <scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
     <view id="{{'scroll'+ item.id}}" class="navItem">
       <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
         品牌介绍
@@ -25,157 +25,176 @@
   </scroll-view>
 
   <!-- 内容列表 -->
-  <!-- 品牌介绍 -->
-  <view class="centenItem {{navId == 0?'centenActive':'' }}">
-    <view class="wrap" style="padding-bottom: 60rpx;">
-      <template is="detail" data="{{...item}}"></template>
-
-      <view class="imgItem">
-        <image mode="widthFix"
-          src="https://img13.360buyimg.com/ddimg/jfs/t1/139402/10/16741/18043/5fc84ebcE5f1d0e5b/a3e0f7f79ea65e5e.jpg" />
-      </view>
-      <view class="contenItem">
-        漆面装甲，高端汽车漆面保护膜专业品牌运营商，依托于云林膜业十数年的技术沉淀，创新并应用最适合中国环境的TPH/TPU基材和高分子氟碳晶化涂层技术工艺制作，产品稳定、抗冲击性能一流，可以最大限度的保护原厂车漆免受外力损伤。 
-      </view>
-      <view class="contenItem">
-        漆面装甲高端汽车漆面保护膜作为汽车美容市场的新贵，完全按照国家工信部《车身贴》、《汽车漆面保护膜》行业标准生产，通过了SGS国际商检和ITS双重检验。其强大的产品性能，也使之成为汽车后市场广大经销商认可的专项盈利项目。
-      </view>
-    </view>
-  </view>
-  <!-- 专利认证 -->
-  <view class="centenItem {{navId == 1?'centenActive':'' }}">
-    <view class="wrap" style="padding-bottom: 60rpx;">
-      <template is="detail" data="{{...item}}"></template>
-
-      <view class="wrapper" style="margin-top: 34rpx;border:none;">
-        <view class="patentItem">漆面装甲拥有以下多项原料及其制备技术专利</view>
-      </view>
-
-      <view class="listItem">
-        <view class="item" wx:for="{{patentList}}" wx:key="id">
-          <view class="listImg">
-            <image src="{{item.imgUrl}}"></image>
+  <swiper class="top_swiper" circular bindchange="topSwiper" current="{{currentId}}" >
+    <swiper-item duration="{{duration}}" >
+      <!-- 品牌介绍 -->
+      <view class="centenItem">
+        <view class="wrap" style="padding-bottom: 60rpx;">
+          <view class="title-wrapper">
+            <view class="title">
+              漆面装甲
+            </view>
+            <view class="msg">
+              漆面装甲，高端汽车漆面保护膜
+            </view>
           </view>
-          <view class="patentContenItem">
-            {{item.text}}
+
+          <view class="imgItem">
+            <image mode="widthFix"
+              src="https://img13.360buyimg.com/ddimg/jfs/t1/139402/10/16741/18043/5fc84ebcE5f1d0e5b/a3e0f7f79ea65e5e.jpg" />
+          </view>
+          <view class="contenItem">
+            漆面装甲，高端汽车漆面保护膜专业品牌运营商，依托于云林膜业十数年的技术沉淀，创新并应用最适合中国环境的TPH/TPU基材和高分子氟碳晶化涂层技术工艺制作，产品稳定、抗冲击性能一流，可以最大限度的保护原厂车漆免受外力损伤。 
+          </view>
+          <view class="contenItem">
+            漆面装甲高端汽车漆面保护膜作为汽车美容市场的新贵，完全按照国家工信部《车身贴》、《汽车漆面保护膜》行业标准生产，通过了SGS国际商检和ITS双重检验。其强大的产品性能，也使之成为汽车后市场广大经销商认可的专项盈利项目。
           </view>
         </view>
       </view>
+    </swiper-item>
+    <swiper-item duration="{{duration}}" >
+      <!-- 专利认证 -->
+      <view class="centenItem">
+        <view class="wrap" style="padding-bottom: 60rpx;">
+          <view class="title-wrapper">
+            <view class="title">
+              漆面装甲
+            </view>
+            <view class="msg">
+              漆面装甲，高端汽车漆面保护膜
+            </view>
+          </view>
 
-      <view class="wrapper" style="margin-top: 34rpx;border:none;">
-        <view class="patentItem">并且通过SGS国际商检和ITS双重检验</view>
+          <view class="wrapper" style="margin-top: 34rpx;border:none;">
+            <view class="patentItem">漆面装甲拥有以下多项原料及其制备技术专利</view>
+          </view>
+
+          <view class="listItem">
+            <view class="item" wx:for="{{patentList}}" wx:key="id">
+              <view class="listImg">
+                <image src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="patentContenItem">
+                {{item.text}}
+              </view>
+            </view>
+          </view>
+
+          <view class="wrapper" style="margin-top: 34rpx;border:none;">
+            <view class="patentItem">并且通过SGS国际商检和ITS双重检验</view>
+          </view>
+
+          <view class="certificationImgItem">
+            <view class="certificationImg">
+              <image mode="widthFix"
+                src="https://img10.360buyimg.com/ddimg/jfs/t1/136355/12/18504/24556/5fc9959bE3d355cbf/b433391c90eeecc6.png">
+              </image>
+            </view>
+            <view class="certificationImg">
+              <image mode="widthFix"
+                src="https://img12.360buyimg.com/ddimg/jfs/t1/144118/12/17088/53496/5fc995dcE37d1be75/4de0478956e22ba5.png">
+              </image>
+            </view>
+          </view>
+        </view>
       </view>
+    </swiper-item>
+    <swiper-item duration="{{duration}}" >
+      <!-- 售后保险 -->
+      <view class="centenItem">
+        <view class="wrap" style="padding-bottom: 90rpx;">
+          <view class="title-wrapper">
+            <view class="title">
+              漆面装甲
+            </view>
+            <view class="msg">
+              漆面装甲，高端汽车漆面保护膜
+            </view>
+          </view>
 
-      <view class="certificationImgItem">
-        <view class="certificationImg">
-          <image mode="widthFix"
-            src="https://img10.360buyimg.com/ddimg/jfs/t1/136355/12/18504/24556/5fc9959bE3d355cbf/b433391c90eeecc6.png">
-          </image>
-        </view>
-        <view class="certificationImg">
-          <image mode="widthFix"
-            src="https://img12.360buyimg.com/ddimg/jfs/t1/144118/12/17088/53496/5fc995dcE37d1be75/4de0478956e22ba5.png">
-          </image>
+          <view class="wrapper" style="margin-top: 34rpx;border:none;background-color:#101010;">
+            <view class="patentItem" style="width: 50%;margin: auto;">三重保险，质量无忧</view>
+          </view>
+
+          <view class="insuranceItem" wx:for="{{insuranceList}}" wx:key="id">
+            <view class="item">
+              <view class="listImg">
+                <image src="{{item.insuranceUrl}}">
+                </image>
+              </view>
+              <view class="patentContenItem">
+                {{item.insuranceText}}
+              </view>
+            </view>
+            <text class="contenItem">{{item.insuranceContent}}</text>
+          </view>
         </view>
       </view>
+    </swiper-item>
+    <swiper-item duration="{{duration}}" >
+      <!-- 加入我们 -->
+      <view class="centenItem">
+        <view class="wrap" style="padding-bottom: 60rpx;">
+          <view class="title-wrapper">
+            <view class="title">
+              漆面装甲
+            </view>
+            <view class="msg">
+              漆面装甲，高端汽车漆面保护膜
+            </view>
+          </view>
 
+          <view class="wrapper">
+            <view class="titleItem">请输入以下信息，之后会有我们的工作人员联系您。</view>
+            <!-- 门店名称 -->
+            <view class="box-wrapper">
+              <view class="tag-wrapper">门店名称：</view>
+              <view class="input-wrapper">
+                <input type="text" style="width:80%;" value="{{shop_name}}" bindinput="inputShopname"
+                  placeholder="请输入门店名称" placeholder-class="placeholder" />
+              </view>
+            </view>
+            <!-- 门店地址 -->
+            <view class="box-wrapper">
+              <view class="tag-wrapper">门店地址：</view>
+              <view class="input-wrapper">
+                <input type="text" style="width:80%;" value="{{address}}" bindfocus="chooseLocation"
+                  placeholder="请输入门店地址" placeholder-class="placeholder" />
+              </view>
+            </view>
+            <!-- 联系人姓名： -->
+            <view class="box-wrapper">
+              <view class="tag-wrapper">联系人姓名：</view>
+              <view class="input-wrapper">
+                <input type="text" style="width:80%;" value="{{person}}" bindinput="inputPerson" placeholder="请输入联系人姓名"
+                  placeholder-class="placeholder" />
+              </view>
+            </view>
+            <!-- 联系电话： -->
+            <view class="box-wrapper">
+              <view class="tag-wrapper">联系电话：</view>
+              <view class="input-wrapper">
+                <input type="number" style="width:80%;" value="{{phone}}" bindinput="inputPhone" placeholder="请输入联系电话"
+                  placeholder-class="placeholder" />
+              </view>
+            </view>
+            <view class="submit-wrapper">
+              <button hover-class="but-hover" bindtap="submit">提交</button>
+            </view>
+            <view class="textItem">或</view>
+            <view class="codeItem">
+              <view class="codeImg" bindtap='previewImg'>
+                <image mode="widthFix" src="{{codeUrl}}"></image>
+              </view>
+            </view>
 
-
-
-
-    </view>
-  </view>
-  <!-- 售后保险 -->
-  <view class="centenItem {{navId == 2?'centenActive':'' }}">
-    <view class="wrap" style="padding-bottom: 90rpx;">
-      <template is="detail" data="{{...item}}"></template>
-
-      <view class="wrapper" style="margin-top: 34rpx;border:none;background-color:#101010;">
-        <view class="patentItem" style="width: 50%;margin: auto;">三重保险，质量无忧</view>
+            <view class="textItem" style="padding-bottom: 14rpx;">全国招商热线：186 6587 7758</view>
+            <view class="textItem">客户服务：400-9988-078</view>
+          </view>
+        </view>
       </view>
-
-      <view class="insuranceItem" wx:for="{{insuranceList}}" wx:key="id">
-        <view class="item">
-          <view class="listImg">
-            <image src="{{item.insuranceUrl}}">
-            </image>
-          </view>
-          <view class="patentContenItem">
-            {{item.insuranceText}}
-          </view>
-        </view>
-        <text class="contenItem">{{item.insuranceContent}}</text>
-      </view>
-    </view>
-  </view>
-  <!-- 加入我们 -->
-  <view class="centenItem {{navId == 3?'centenActive':'' }}">
-    <view class="wrap" style="padding-bottom: 60rpx;">
-      <template is="detail" data="{{...item}}"></template>
-
-      <view class="wrapper">
-        <view class="titleItem">请输入以下信息，之后会有我们的工作人员联系您。</view>
-        <!-- 门店名称 -->
-        <view class="box-wrapper">
-          <view class="tag-wrapper">门店名称：</view>
-          <view class="input-wrapper">
-            <input type="text" style="width:80%;" value="{{shop_name}}" bindinput="inputShopname" placeholder="请输入门店名称"
-              placeholder-class="placeholder" />
-          </view>
-        </view>
-        <!-- 门店地址 -->
-        <view class="box-wrapper">
-          <view class="tag-wrapper">门店地址：</view>
-          <view class="input-wrapper">
-            <input type="text" style="width:80%;" value="{{address}}" bindfocus="chooseLocation" placeholder="请输入门店地址"
-              placeholder-class="placeholder" />
-          </view>
-        </view>
-        <!-- 联系人姓名： -->
-        <view class="box-wrapper">
-          <view class="tag-wrapper">联系人姓名：</view>
-          <view class="input-wrapper">
-            <input type="text" style="width:80%;" value="{{person}}" bindinput="inputPerson" placeholder="请输入联系人姓名"
-              placeholder-class="placeholder" />
-          </view>
-        </view>
-        <!-- 联系电话： -->
-        <view class="box-wrapper">
-          <view class="tag-wrapper">联系电话：</view>
-          <view class="input-wrapper">
-            <input type="number" style="width:80%;" value="{{phone}}" bindinput="inputPhone" placeholder="请输入联系电话"
-              placeholder-class="placeholder" />
-          </view>
-        </view>
-
-        <view class="submit-wrapper">
-          <button hover-class="but-hover" bindtap="submit">提交</button>
-        </view>
-
-        <view class="textItem">或</view>
-
-        <view class="codeItem">
-          <view class="codeImg" bindtap='previewImg'>
-            <image mode="widthFix" src="{{codeUrl}}"></image>
-          </view>
-        </view>
-
-        <view class="textItem" style="padding-bottom: 14rpx;">全国招商热线：186 6587 7758</view>
-        <view class="textItem">客户服务：400-9988-078</view>
-
-
-
-
-
-      </view>
-
-
-
-    </view>
-
-
-
-  </view>
+    </swiper-item>
+  </swiper>
 
   <view class="footer {{footerId == navId?'footerActive':'' }}">
     <image mode="widthFix"

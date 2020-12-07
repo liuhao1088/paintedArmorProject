@@ -6,10 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: {
-      title: '漆面装甲',
-      msg: '漆面装甲，高端汽车漆面保护膜'
-    },
     navId: 0,
     patentList: [{
         imgUrl: 'https://img11.360buyimg.com/ddimg/jfs/t1/143930/28/16581/3347/5fc86172Ecd3027c2/a079682c16c4de4e.jpg',
@@ -49,53 +45,50 @@ Page({
     ],
     codeUrl: 'https://ae04.alicdn.com/kf/H320184699f6b4b16a88969d4fa0a9a73G.jpg', //二维码
     height: '100%',
-    windowHeight:'',
-    shop_name:'',
-    address:'',
-    person:'',
-    phone:'',address_name:'',detail:'',
-    footerId: 0
+    windowHeight: '',
+    shop_name: '',
+    address: '',
+    person: '',
+    phone: '',
+    address_name: '',
+    detail: '',
+    footerId: 0,
+    currentId: 0
+  },
+  topSwiper(event) {
+    let navId = event.detail.current;
+    console.log(event.detail.current)
+    this.setData({
+      navId
+    })
   },
   changNav(event) {
     let navId = event.currentTarget.dataset.id;
     let windowHeight = this.data.windowHeight;
     console.log(windowHeight)
-    if(navId === '0'){
+    if (this.data.currentId == navId) {
+      return false;
+    } else {
       this.setData({
-        footerId: '0'
+        currentId: navId
       })
-    }else if (navId === '1') {
-      if(windowHeight > 700){
-        this.setData({
-          height: '100%'
-        })
-      }else{
-        this.setData({
-          height: 'auto'
-        })
-      }
-    } else if (navId === '2') {
-      if(windowHeight > 700){
-        this.setData({
-          height: '100%',
-          footerId: '2'
-        })
-      }else{
-        this.setData({
-          height: 'auto'
-        })
-      }
-    } else if (navId === '3') {
-      if(windowHeight > 700){
-        this.setData({
-          height: '100%'
-        })
-      }else{
-        this.setData({
-          height: 'auto'
-        })
-      }
     }
+    // if (navId === '0') {
+    //   // this.setData({
+    //   //   footerId: navId
+    //   // })
+    // } else if (navId === '1') {
+
+    // } else if (navId === '2') {
+    //   if (windowHeight > 700) {
+    //     this.setData({
+    //       height: '100%',
+    //       // footerId: navId
+    //     })
+    //   } 
+    // } else if (navId === '3') {
+
+    // }
     this.setData({
       navId,
     })
@@ -117,7 +110,7 @@ Page({
     this.setData({
       windowHeight
     })
-   
+
 
     let navId = options.index;
     console.log(navId);
@@ -125,52 +118,53 @@ Page({
       navId
     })
   },
-  inputShopname:function(e){
+  inputShopname: function (e) {
     this.setData({
-      shop_name:e.detail.value
+      shop_name: e.detail.value
     })
   },
-  inputPerson:function(e){
+  inputPerson: function (e) {
     this.setData({
-      person:e.detail.value
+      person: e.detail.value
     })
   },
-  inputPhone:function(e){
+  inputPhone: function (e) {
     this.setData({
-      phone:e.detail.value
+      phone: e.detail.value
     })
   },
   chooseLocation: function (e) {
-    
+
     var that = this;
     wx.chooseLocation({
       success: function (res) {
         console.log(res)
         let addressJson = res;
-        wx.setStorageSync('addressJson',addressJson)
+        wx.setStorageSync('addressJson', addressJson)
         that.showModal();
         that.setData({
           address: res.address,
-          address_name:res.name
+          address_name: res.name
         })
       },
-    })/*this.setData({
-      address:e.detail.value
-    })*/
+    })
+    /*this.setData({
+          address:e.detail.value
+        })*/
   },
-  inputAddressname:function(e){
+  inputAddressname: function (e) {
     this.setData({
-      address_name:e.detail.value
+      address_name: e.detail.value
     })
   },
-  inputAddress:function(e){
+  inputAddress: function (e) {
     this.setData({
-      address:e.detail.value
+      address: e.detail.value
     })
   },
-  inputDetail:function(e){
+  inputDetail: function (e) {
     this.setData({
-      detail:e.detail.value
+      detail: e.detail.value
     })
   },
   showModal(e) {
@@ -186,7 +180,7 @@ Page({
   //提交
   async submit() {
     var that = this;
-    if (that.data.shop_name !== "" && that.data.address !== ""&& that.data.phone !== "") {
+    if (that.data.shop_name !== "" && that.data.address !== "" && that.data.phone !== "") {
       wx.showLoading({
         title: '提交中，请稍等',
       })
@@ -200,23 +194,23 @@ Page({
     }
 
   },
-  
+
   add: function () {
     var that = this;
     const creation_date = util.formatTime(new Date())
-    let addressJson=wx.getStorageSync('addressJson')
+    let addressJson = wx.getStorageSync('addressJson')
     wx.cloud.callFunction({
       name: "collectionAdd", //
       data: {
-        collection: 'shop', 
+        collection: 'shop',
         addData: {
           creation_date: creation_date,
           shop_name: that.data.shop_name,
           address: that.data.address,
           lat: addressJson.latitude,
           lon: addressJson.longitude,
-          address_name:that.data.address_name,
-          detail:that.data.detail,
+          address_name: that.data.address_name,
+          detail: that.data.detail,
           person: that.data.person,
           phone: that.data.phone,
           creation_timestamp: Date.parse(creation_date.replace(/-/g, '/')) / 1000,
@@ -236,7 +230,12 @@ Page({
       setTimeout(function () {
         that.setData({
           navId: 0,
-          address:"",phone:'',person:'',shop_name:'',address_name:'',detail:''
+          address: "",
+          phone: '',
+          person: '',
+          shop_name: '',
+          address_name: '',
+          detail: ''
         })
       }, 2000)
     }).catch(res => {
