@@ -1,2 +1,3 @@
 /* miniprogram/pages/manage/user/user.wxss */
 @import "../car/car.wxss";
+@import "../../../style/icon.wxss";

@@ -11,6 +11,7 @@ Page({
     person    : '',
     detail:'',
     phone: '',
+    address_name:''
   },
 
   /**
@@ -24,6 +25,7 @@ Page({
       detail:editData.detail,
       person: editData.person,
       phone: editData.phone,
+      address_name:editData.address_name
     })
   },
   openLocation:function(){
