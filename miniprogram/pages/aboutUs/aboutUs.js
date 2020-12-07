@@ -52,7 +52,6 @@ Page({
     phone: '',
     address_name: '',
     detail: '',
-    footerId: 0,
     currentId: 0
   },
   topSwiper(event) {
@@ -73,22 +72,6 @@ Page({
         currentId: navId
       })
     }
-    // if (navId === '0') {
-    //   // this.setData({
-    //   //   footerId: navId
-    //   // })
-    // } else if (navId === '1') {
-
-    // } else if (navId === '2') {
-    //   if (windowHeight > 700) {
-    //     this.setData({
-    //       height: '100%',
-    //       // footerId: navId
-    //     })
-    //   } 
-    // } else if (navId === '3') {
-
-    // }
     this.setData({
       navId,
     })
@@ -106,11 +89,21 @@ Page({
    */
   onLoad: function (options) {
     //获取屏幕高度
-    var windowHeight = wx.getSystemInfoSync().windowHeight;
-    this.setData({
-      windowHeight
-    })
-
+    let that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        let clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth,
+          rpxR = 750 / clientWidth;
+          let calc = clientHeight * rpxR - 88;
+          calc = calc+300;
+        console.log(calc);
+        console.log(rpxR);
+        that.setData({
+          windowHeight: calc,
+        });
+      }
+    });
 
     let navId = options.index;
     console.log(navId);
@@ -148,9 +141,6 @@ Page({
         })
       },
     })
-    /*this.setData({
-          address:e.detail.value
-        })*/
   },
   inputAddressname: function (e) {
     this.setData({
