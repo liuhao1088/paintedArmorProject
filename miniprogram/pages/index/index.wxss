@@ -2,7 +2,7 @@
   width: 100%;
   height: 590rpx;
   border: 0rpx solid red;
-  background-image: linear-gradient(#ecbc80,#f6c88c);
+  background-image: linear-gradient(#ecbc80, #f6c88c);
 }
 
 .banner {
@@ -27,7 +27,7 @@
   height: 100%;
   border-radius: 34rpx;
   background-color: rgb(248, 248, 248);
-  box-shadow: 0px 12rpx 14rpx 0px rgba(4, 0, 0, 0.2);
+  box-shadow: 0px 12rpx 14rpx 0px rgba(	105,105,105, 0.2);
   line-height: 68rpx;
   position: relative;
   top: -50rpx;
@@ -67,10 +67,11 @@
   float: right;
   color: rgba(151, 151, 151, 0.5);
 }
+
 @font-face {
   font-family: 'Siyuan Song';
   src: url('https://6172-armoured-8gzmmlci82e3016b-1304414766.tcb.qcloud.la/build/%E5%AD%97%E4%BD%93/%E6%80%9D%E6%BA%90%E5%AE%8B%E4%BD%93.ttf?sign=6f278ebd256b70f7cf3dfa4054aae97b&t=1607076597');
- }
+}
 
 /* 系列内容 */
 .content {
