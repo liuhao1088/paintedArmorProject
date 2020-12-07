@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/toFormWarranty/toFormWarranty",
     "pages/aboutUs/aboutUs",
+   
+    "pages/toFormWarranty/toFormWarranty",
+    
     "pages/exclusiveSeries/exclusiveSeries",
     "pages/goldDiamondSeries/goldDiamondSeries",
     "pages/glorySeries/glorySeries",
