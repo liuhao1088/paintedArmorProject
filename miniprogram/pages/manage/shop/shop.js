@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: [],scrollHev:''
   },
   toReturn: function () {
     wx.navigateBack({
@@ -51,6 +51,9 @@ Page({
             _this.setData({
               list: _this.data.list
             })
+            skip=0;
+            _this.setData({list:[]})
+            _this.loadData()
           })
 
         }
@@ -82,6 +85,16 @@ Page({
     } else {
       db.collection("shop").where(_.or([{
         shop_name: {
+          $regex: '.*' + e.detail.value,
+          $options: 'i'
+        }
+      },{
+        address: {
+          $regex: '.*' + e.detail.value,
+          $options: 'i'
+        }
+      },{
+        address_name: {
           $regex: '.*' + e.detail.value,
           $options: 'i'
         }
@@ -129,7 +142,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          widheight: res.windowHeight,
+          scrollHev:res.windowHeight-70
+        });
+      }
+    });
   },
 
   /**

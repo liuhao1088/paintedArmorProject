@@ -32,6 +32,7 @@ Page({
    */
   onLoad: function (options) {
     let editData = wx.getStorageSync('editData')
+    if(editData.vin=='') editData.vin='空'
     this.setData({
       name: editData.name,
       mobile: editData.mobile,
@@ -59,7 +60,13 @@ Page({
           current: this.data.tempFilePaths2[ind], // 当前显示图片的http链接
           urls: this.data.tempFilePaths2 // 需要预览的图片http链接列表
     })
-},
+  },
+  callPhone:function(){
+    var that=this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.mobile,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

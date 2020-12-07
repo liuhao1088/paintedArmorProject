@@ -8,7 +8,7 @@
 
 </view>
 <view class="container">
-  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1000px;" class="list"
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHev}}px;" class="list"
     bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" bindscroll="scroll">
     <view class='viewbox' bindlongtap='deleteAddr' wx:for="{{list}}" wx:key="*" data-index="{{index}}" bindtap="toLookup">
       <view class='row'>
@@ -17,10 +17,9 @@
         <image class='viewbox-icon' src='/images/bianji.png' data-index="{{index}}" bindtap='toEdit'></image>
       </view>
       <view class='row'>
-        <view class="viewbox-address"><text decode="{{true}}">地址：{{item.address}} &nbsp;&nbsp;&nbsp;&nbsp; </text></view>
+        <view class="viewbox-address"><text decode="{{true}}">地址：{{item.address}}{{item.address_name}} &nbsp;&nbsp;&nbsp;&nbsp; </text></view>
       </view>
     </view>
-
     <view style="height:80px"></view>
   </scroll-view>
   <view class="bottom" style="">

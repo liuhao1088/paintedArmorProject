@@ -8,28 +8,28 @@
       <view class="box-wrapper">
         <view class="tag-wrapper">姓名：</view>
         <view class="input-wrapper">
-          <input type="text" value="" placeholder="请输入姓名" placeholder-class="placeholder" />
+          <input type="text" style="width:80%" value="{{name}}" bindinput="inputName" placeholder="请输入姓名" placeholder-class="placeholder" />
         </view>
       </view>
       <!-- 手机号 -->
       <view class="box-wrapper">
         <view class="tag-wrapper">手机号：</view>
         <view class="input-wrapper">
-          <input type="number" value="" placeholder="请输入手机号" placeholder-class="placeholder" />
+          <input type="number" style="width:80%" value="{{mobile}}" bindinput="inputMobile" placeholder="请输入手机号" placeholder-class="placeholder" />
         </view>
       </view>
       <!-- 车牌号 -->
       <view class="box-wrapper">
         <view class="tag-wrapper">车牌号：</view>
         <view class="input-wrapper">
-          <input type="text" value="" placeholder="请输入车牌号" placeholder-class="placeholder" />
+          <input type="text" style="width:80%" value="{{number_plate}}" bindinput="inputNumberplate" placeholder="请输入车牌号" placeholder-class="placeholder" />
         </view>
       </view>
       <!-- 质保编码 -->
       <view class="box-wrapper">
         <view class="tag-wrapper">质保编码：</view>
         <view class="input-wrapper">
-          <input type="number" value="" placeholder="请输入质保编码" placeholder-class="placeholder" />
+          <input type="number" style="width:80%" value="{{code}}" bindinput="inputCode" placeholder="请输入质保编码" placeholder-class="placeholder" />
         </view>
       </view>
       <!-- 车架号 -->
@@ -38,14 +38,14 @@
           <text class="optional-wrapper">(选填)</text>
         </view>
         <view class="input-wrapper">
-          <input type="text" value="" placeholder="请输入车架号" placeholder-class="placeholder" />
+          <input type="text" style="width:80%" value="{{vin}}" bindinput="inputVin" placeholder="请输入车架号" placeholder-class="placeholder" />
         </view>
       </view>
       <!-- 门店 -->
       <view class="box-wrapper">
         <view class="tag-wrapper">门店：</view>
         <view class="input-wrapper">
-          <input type="text" value="" placeholder="请输入门店" placeholder-class="placeholder" />
+          <input type="text" style="width:80%" value="{{shop}}" bindinput="inputShop" placeholder="请输入门店" placeholder-class="placeholder" />
         </view>
       </view>
 
@@ -55,9 +55,10 @@
         <view class="picker-wrapper">
           <!-- 年份 -->
           <view class="picker-nav">
-            <picker bindchange="bindDateChange" value="{{index}}" range="{{array}}">
+            <picker bindchange="bindDateChange" mode="date" fields="year" value="{{year}}" start="1999"
+      end="2999">
               <view class="years">
-                {{array[index]}}
+                {{year}}
               </view>
             </picker>
           </view>
@@ -88,7 +89,7 @@
         <view class="imageList-wrapper" style="">
           <view class="img-wrapper">
           上传图片
-          <image src="{{imgUrl}}" bindtap='insertImage'></image>
+          <image src="{{imgUrl}}" style="background:{{imgBg[0]}}" bindtap='insertImage'></image>
         </view>
         </view>
        
@@ -101,16 +102,16 @@
         <view class="imageList-wrapper">
           <view class="img-wrapper">
             上传图片
-            <image src="{{imgUrl}}" bindtap='insertImage'></image>
+            <image src="{{imgUrl2}}" style="background:{{imgBg[1]}}" bindtap='insertImage2'></image>
           </view>
 
           <view class="img-wrapper">
             上传图片
-            <image src="{{imgUrl}}" bindtap='insertImage'></image>
+            <image src="{{imgUrl3}}" style="background:{{imgBg[2]}}" bindtap='insertImage3'></image>
           </view>
           <view class="img-wrapper">
             上传图片
-            <image src="{{imgUrl}}" bindtap='insertImage'></image>
+            <image src="{{imgUrl4}}" style="background:{{imgBg[3]}}" bindtap='insertImage4'></image>
           </view>
         </view>
       </view>
@@ -119,7 +120,7 @@
   </view>
  <!-- 提交 -->
  <view class="submit-wrapper">
-  <button hover-class="but-hover" bindtap="toDetails">提交</button>
+  <button hover-class="but-hover" bindtap="submit">提交</button>
  </view>
     
 

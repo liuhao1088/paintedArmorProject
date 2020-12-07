@@ -7,14 +7,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: [],scrollHev:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          widheight: res.windowHeight,
+          scrollHev:res.windowHeight-70
+        });
+      }
+    });
   },
   search(e) {
     var that = this;

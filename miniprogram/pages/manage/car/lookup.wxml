@@ -9,6 +9,8 @@
 <view class='box row align-center'>
   <view class='field align-center'>手机号</view>
   <view class='input align-center' >{{mobile}}</view>
+  <image style="height:25px;width:25px;position:absolute;right:5%;" bindtap="callPhone"
+        src="../../../images/phone.png" />
 </view>
 
 <view class='box row align-center'>
