@@ -53,13 +53,18 @@ Page({
     shop_name:'',
     address:'',
     person:'',
-    phone:'',address_name:'',detail:''
+    phone:'',address_name:'',detail:'',
+    footerId: 0
   },
   changNav(event) {
     let navId = event.currentTarget.dataset.id;
     let windowHeight = this.data.windowHeight;
     console.log(windowHeight)
-    if (navId === '1') {
+    if(navId === '0'){
+      this.setData({
+        footerId: '0'
+      })
+    }else if (navId === '1') {
       if(windowHeight > 700){
         this.setData({
           height: '100%'
@@ -72,7 +77,8 @@ Page({
     } else if (navId === '2') {
       if(windowHeight > 700){
         this.setData({
-          height: '100%'
+          height: '100%',
+          footerId: '2'
         })
       }else{
         this.setData({
@@ -114,7 +120,7 @@ Page({
    
 
     let navId = options.index;
-    console.log(navId)
+    console.log(navId);
     this.setData({
       navId
     })

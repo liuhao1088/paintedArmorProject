@@ -119,28 +119,32 @@
         <view class="box-wrapper">
           <view class="tag-wrapper">门店名称：</view>
           <view class="input-wrapper">
-            <input type="text" style="width:80%;" value="{{shop_name}}" bindinput="inputShopname" placeholder="请输入门店名称" placeholder-class="placeholder" />
+            <input type="text" style="width:80%;" value="{{shop_name}}" bindinput="inputShopname" placeholder="请输入门店名称"
+              placeholder-class="placeholder" />
           </view>
         </view>
         <!-- 门店地址 -->
         <view class="box-wrapper">
           <view class="tag-wrapper">门店地址：</view>
           <view class="input-wrapper">
-            <input type="text" style="width:80%;" value="{{address}}" bindfocus="chooseLocation" placeholder="请输入门店地址" placeholder-class="placeholder" />
+            <input type="text" style="width:80%;" value="{{address}}" bindfocus="chooseLocation" placeholder="请输入门店地址"
+              placeholder-class="placeholder" />
           </view>
         </view>
         <!-- 联系人姓名： -->
         <view class="box-wrapper">
           <view class="tag-wrapper">联系人姓名：</view>
           <view class="input-wrapper">
-            <input type="text" style="width:80%;" value="{{person}}" bindinput="inputPerson" placeholder="请输入联系人姓名" placeholder-class="placeholder" />
+            <input type="text" style="width:80%;" value="{{person}}" bindinput="inputPerson" placeholder="请输入联系人姓名"
+              placeholder-class="placeholder" />
           </view>
         </view>
         <!-- 联系电话： -->
         <view class="box-wrapper">
           <view class="tag-wrapper">联系电话：</view>
           <view class="input-wrapper">
-            <input type="number" style="width:80%;" value="{{phone}}" bindinput="inputPhone" placeholder="请输入联系电话" placeholder-class="placeholder" />
+            <input type="number" style="width:80%;" value="{{phone}}" bindinput="inputPhone" placeholder="请输入联系电话"
+              placeholder-class="placeholder" />
           </view>
         </view>
 
@@ -173,10 +177,10 @@
 
   </view>
 
-  <template is="footer" data="{{...item}}"></template>
-
-
-
+  <view class="footer {{footerId == navId?'footerActive':'' }}">
+    <image mode="widthFix"
+      src="https://img12.360buyimg.com/ddimg/jfs/t1/132861/28/18179/78658/5fc71c86E1951d453/8a1ee0da049afb6f.jpg" />
+  </view>
 
 </view>
 
@@ -191,13 +195,16 @@
     </view>
     <view class="padding-xl">
       <view class="row">
-        <view style="font-weight:700;margin:5px 0px;">地点</view><input style="width:80%;margin:5px 10px;" value="{{address_name}}" bindblur="inputAddressname" placeholder="请输入地点" />
+        <view style="font-weight:700;margin:5px 0px;">地点</view><input style="width:80%;margin:5px 10px;"
+          value="{{address_name}}" bindblur="inputAddressname" placeholder="请输入地点" />
       </view>
       <view class="row">
-        <view style="font-weight:700;margin:5px 0px;">地址</view><input style="width:80%;margin:5px 10px;" value="{{address}}" bindblur="inputAddress" placeholder="请输入地址" />
+        <view style="font-weight:700;margin:5px 0px;">地址</view><input style="width:80%;margin:5px 10px;"
+          value="{{address}}" bindblur="inputAddress" placeholder="请输入地址" />
       </view>
       <view class="row">
-        <view style="font-weight:700;margin:5px 0px;">补充</view><input style="width:80%;margin:5px 10px;" value="{{detail}}" bindblur="inputDetail" placeholder="请输入补充，如楼层、门牌" />
+        <view style="font-weight:700;margin:5px 0px;">补充</view><input style="width:80%;margin:5px 10px;"
+          value="{{detail}}" bindblur="inputDetail" placeholder="请输入补充，如楼层、门牌" />
       </view>
     </view>
     <view class="cu-bar bg-white justify-end">

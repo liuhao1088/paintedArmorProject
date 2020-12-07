@@ -10,9 +10,9 @@ page {
   white-space: nowrap;
   height: 80rpx;
   background-color: rgba(83, 83, 83, 100);
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 100; */
 }
 
 .navScroll .navItem {
@@ -40,10 +40,10 @@ page {
 }
 
 .centenItem {
-  height: 100%;
-  margin-top: 80rpx;
+  /* height: 100%; */
+  /* padding-top: 80rpx; */
   display: none;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .centenActive {
@@ -222,4 +222,9 @@ button {
   border: 0rpx solid red;
   margin-top: 20rpx;
   padding-bottom: 20rpx;
+}
+
+.footerActive{
+  position: fixed;
+  bottom: 0;
 }
