@@ -172,7 +172,7 @@ Page({
   },
   //上传图片到云存储
   uploadimg: function (i, parse, content, arr) {
-    //if(i == parse.length) return;
+    if(i == parse.length) return;
     return new Promise((resolve, reject) => {
       var that = this;
       let code = that.getRandomCode();

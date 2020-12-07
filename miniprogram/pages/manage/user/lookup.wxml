@@ -5,7 +5,7 @@
     <view class='field align-center'>头像</view>
     <view class="iconlist row" style="margin-top:5px;margin-bottom:5px;">
       
-        <image class="addIcon" src="{{avatarUrl}}" />
+        <image class="addIcon" src="{{avatarUrl}}" bindtap="previewAva" />
       
     </view>
   </view>

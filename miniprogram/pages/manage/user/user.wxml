@@ -8,7 +8,7 @@
 
 </view>
 <view class="container">
-  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:1000px;" class="list"
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHev}}px;" class="list"
     bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" bindscroll="scroll">
     <view class='viewbox' bindlongtap='deleteAddr' wx:for="{{list}}" wx:key="*" data-index="{{index}}" bindtap="">
 
@@ -29,7 +29,7 @@
       
     </view>
 
-    <view style="height:80px"></view>
+    <view style="height:0px"></view>
   </scroll-view>
 
 </view>
