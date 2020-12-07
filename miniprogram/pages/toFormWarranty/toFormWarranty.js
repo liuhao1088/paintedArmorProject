@@ -174,11 +174,7 @@ Page({
   onReachBottom: function () {
 
   },
-  toManage:function(){
-    wx.navigateTo({
-      url: '../manage/manage',
-    })
-  },
+
   /**
    * 用户点击右上角分享
    */

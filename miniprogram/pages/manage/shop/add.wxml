@@ -12,9 +12,9 @@
     placeholder='请输入门店地址'></input>
 </view>
 <view class='box row align-center'>
-  <view class='field align-center'>门牌号</view>
+  <view class='field align-center'>地址补充</view>
   <input class='input align-center' value='{{detail}}' bindinput='inputDetail'
-    placeholder='请输入门牌号'></input>
+    placeholder='请输入补充，如楼层、门牌'></input>
 </view>
 <view class='box row align-center'>
   <view class='field align-center'>联系人</view>

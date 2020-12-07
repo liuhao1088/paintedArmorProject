@@ -53,7 +53,7 @@ Page({
     shop_name:'',
     address:'',
     person:'',
-    phone:''
+    phone:'',address_name:'',detail:''
   },
   changNav(event) {
     let navId = event.currentTarget.dataset.id;
@@ -135,20 +135,47 @@ Page({
     })
   },
   chooseLocation: function (e) {
-    this.setData({
-      address:e.detail.value
-    })
-    /*var that = this;
+    
+    var that = this;
     wx.chooseLocation({
       success: function (res) {
         console.log(res)
         let addressJson = res;
         wx.setStorageSync('addressJson',addressJson)
+        that.showModal();
         that.setData({
-          address: res.address
+          address: res.address,
+          address_name:res.name
         })
       },
+    })/*this.setData({
+      address:e.detail.value
     })*/
+  },
+  inputAddressname:function(e){
+    this.setData({
+      address_name:e.detail.value
+    })
+  },
+  inputAddress:function(e){
+    this.setData({
+      address:e.detail.value
+    })
+  },
+  inputDetail:function(e){
+    this.setData({
+      detail:e.detail.value
+    })
+  },
+  showModal(e) {
+    this.setData({
+      modalName: 'DialogModal1'
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
   },
   //提交
   async submit() {
@@ -180,10 +207,10 @@ Page({
           creation_date: creation_date,
           shop_name: that.data.shop_name,
           address: that.data.address,
-          //lat: addressJson.latitude,
-          //lon: addressJson.longitude,
-          address_name:that.data.address,
-          //detail:that.data.detail,
+          lat: addressJson.latitude,
+          lon: addressJson.longitude,
+          address_name:that.data.address_name,
+          detail:that.data.detail,
           person: that.data.person,
           phone: that.data.phone,
           creation_timestamp: Date.parse(creation_date.replace(/-/g, '/')) / 1000,
@@ -203,7 +230,7 @@ Page({
       setTimeout(function () {
         that.setData({
           navId: 0,
-          address:"",phone:'',person:'',shop_name:''
+          address:"",phone:'',person:'',shop_name:'',address_name:'',detail:''
         })
       }, 2000)
     }).catch(res => {
