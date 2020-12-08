@@ -7,7 +7,7 @@ Page({
       'https://img11.360buyimg.com/ddimg/jfs/t1/135883/24/18012/126516/5fc70386Ee8aea84e/f9c4e7a07fda64f2.jpg',
       'https://img11.360buyimg.com/ddimg/jfs/t1/149021/12/16911/247050/5fc9953cE9d9f50a5/40c7d5885975a276.jpg',
       'https://img13.360buyimg.com/ddimg/jfs/t1/151724/1/8365/184254/5fc99556E7821e493/d71ad309c99bc403.jpg',
-      'https://img10.360buyimg.com/ddimg/jfs/t1/153715/40/8417/102371/5fc99521E5b727037/5e2621b633a37bed.jpg',
+      'https://img10.360buyimg.com/ddimg/jfs/t1/136583/36/19175/152328/5fcf39ecE6197e700/2bb3dc2769f21267.jpg',
     ],
     contentList: [{
         lbtUrl: 'https://img13.360buyimg.com/ddimg/jfs/t1/152970/34/8035/165440/5fc7064bEcdc64de8/5618ac3a84f74e7a.png',
