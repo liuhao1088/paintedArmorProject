@@ -201,38 +201,11 @@ Page({
     })
   },
 
-  //查询时间
-  async getDtae() {
-    let that = this;
-    let countResult = await db.collection('date').count()
-    let total = countResult.total
-    let batchTimes = Math.ceil(total / 20); //获取需要获取几次 
-    let dateList = [];
-    let list = [];
-    //初次循环获取云端数据库的分次数的promise数组
-    for (let i = 0; i < batchTimes; i++) {
-      db.collection('date').skip(i * 20).get({
-        success: function (res) {
-          console.log(res.data)
-          for (let j = 0; j < res.data.length; j++) {
-            dateList.push(res.data[j].name);
-            list.push(res.data[j]);
-          }
-          console.log(dateList)
-          that.setData({
-            array: dateList,
-            dateArray: list
-          })
-        }
-      })
-    }
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDtae();
     //获取系统年份
     let year = util.year(new Date());
     this.setData({
