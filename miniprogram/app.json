@@ -17,8 +17,9 @@
     "pages/manage/shop/add",
     "pages/manage/shop/edit",
     "pages/manage/shop/lookup",
-    "pages/details/details"
-  ], 
+    "pages/details/details",
+    "pages/index/privacy/privacy"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#101010",

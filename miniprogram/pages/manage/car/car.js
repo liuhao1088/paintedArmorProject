@@ -1,4 +1,4 @@
-// miniprogram/pages/manage/coupon/coupon.js
+// miniprogram/pages/manage/car/car.js
 var ind;
 var skip;
 Page({
@@ -125,6 +125,7 @@ Page({
         }
       }])).skip(skip).limit(20).orderBy("creation_date", "desc").get().then(res => {
         let data = res.data;
+        console.log(res)
         if(data.length==0){
           that.setData({list:[]})
         }

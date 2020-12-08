@@ -17,6 +17,10 @@
     <view class='input align-center'>{{detail}}</view>
   </view>
   <view class='box row align-center'>
+    <view class='field align-center'>提交时间</view>
+    <view class='input align-center'>{{creation_date}}</view>
+  </view>
+  <view class='box row align-center'>
     <view class='field align-center'>联系人</view>
     <view class='input align-center'>{{person}}</view>
   </view>

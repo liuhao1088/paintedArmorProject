@@ -1,46 +1,20 @@
-// miniprogram/pages/manage/shop/lookup.js
-var editData;
+// miniprogram/pages/index/privacy/privacy.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shop_name: '',
-    address: '',
-    person    : '',
-    detail:'',
-    phone: '',
-    address_name:'',creation_date:''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    editData = wx.getStorageSync('editData')
-    if(editData.creation_date==undefined) editData.creation_date='无'
-    this.setData({
-      shop_name: editData.shop_name,
-      address: editData.address,
-      detail:editData.detail,
-      person: editData.person,
-      phone: editData.phone,
-      address_name:editData.address_name,
-      creation_date:editData.creation_date
-    })
+
   },
-  openLocation:function(){
-    wx.openLocation({
-      latitude: editData.lat,
-      longitude: editData.lon,
-    })
-  },
-  callPhone:function(){
-    wx.makePhoneCall({
-      phoneNumber: editData.phone,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
