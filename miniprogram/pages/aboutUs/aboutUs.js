@@ -116,7 +116,7 @@ Page({
             });
           }else{
             that.setData({
-              windowHeight: '1300',
+              windowHeight: '1200',
             });
             
           }
@@ -126,23 +126,28 @@ Page({
           });
         }
         else if(navId === 2){
-          that.setData({
-            windowHeight: '1360',
-          });
+          if(calc > 1200){
+            that.setData({
+              windowHeight: calc,
+            });
+          }else{
+            that.setData({
+              windowHeight: '1120',
+            });
+            
+          }
+          // that.setData({
+          //   windowHeight: '1360',
+          // });
         }
         else{
           that.setData({
             windowHeight: '1440',
           });
         }
-        // that.setData({
-        //   windowHeight: calc,
-        // });
       }
     });
-
   },
-
 
   inputShopname: function (e) {
     this.setData({
