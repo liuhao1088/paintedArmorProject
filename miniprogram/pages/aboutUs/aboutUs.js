@@ -57,6 +57,7 @@ Page({
   topSwiper(event) {
     let navId = event.detail.current;
     console.log(event.detail.current)
+    this.getWindowHeight(navId);
     this.setData({
       navId
     })
@@ -72,6 +73,7 @@ Page({
         currentId: navId
       })
     }
+    this.getWindowHeight(navId);
     this.setData({
       navId,
     })
@@ -89,28 +91,57 @@ Page({
    */
   onLoad: function (options) {
     //获取屏幕高度
-    let that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        let clientHeight = res.windowHeight,
-          clientWidth = res.windowWidth,
-          rpxR = 750 / clientWidth;
-          let calc = clientHeight * rpxR - 88;
-          calc = calc+300;
-        console.log(calc);
-        console.log(rpxR);
-        that.setData({
-          windowHeight: calc,
-        });
-      }
-    });
-
-    let navId = options.index;
+    let navId = this.data.navId;
     console.log(navId);
     this.setData({
       navId
     })
+   this.getWindowHeight(navId);
   },
+
+  getWindowHeight(navId){
+    let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        let clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth,
+          rpxR = 750 / clientWidth;
+        let calc = clientHeight * rpxR -110;
+        console.log(calc)
+        if(navId === 0){
+          if(calc > 1200){
+            that.setData({
+              windowHeight: calc,
+            });
+          }else{
+            that.setData({
+              windowHeight: '1300',
+            });
+            
+          }
+        }else if(navId === 1){
+          that.setData({
+            windowHeight: calc,
+          });
+        }
+        else if(navId === 2){
+          that.setData({
+            windowHeight: '1360',
+          });
+        }
+        else{
+          that.setData({
+            windowHeight: '1440',
+          });
+        }
+        // that.setData({
+        //   windowHeight: calc,
+        // });
+      }
+    });
+  },
+
+
   inputShopname: function (e) {
     this.setData({
       shop_name: e.detail.value

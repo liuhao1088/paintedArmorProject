@@ -2,7 +2,7 @@
 .maxWrap{
   width: 100%;
   height: 100%;
-  float: left;
+  background-color: #101010;
 }
 .title-wrapper{
   margin-top: 0rpx;
@@ -11,8 +11,8 @@
 .navScroll {
   display: flex;
   white-space: nowrap;
-  height: 80rpx;
-  background-color: rgba(83, 83, 83, 100);
+  height: 100rpx;
+  background-color: #1d1d1d;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -28,18 +28,21 @@
 }
 
 .navScroll .navItem .active {
-  background-color: rgba(238, 205, 141, 100);
-  color: rgba(255, 255, 255, 100);
+  color: rgb(222, 179, 124);
 }
 
 .navScroll .navContent {
   width: 60%;
-  height: 48rpx;
-  line-height: 48rpx;
-  border-radius: 24rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   border: 0rpx solid red;
   text-align: center;
-  color: rgba(238, 205, 141, 100);
+  border-radius: 6px;
+  /* background-image: -moz-linear-gradient( 90deg, rgb(16,16,16) 0%, rgb(19,19,19) 50%, rgb(16,16,16) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(16,16,16) 0%, rgb(19,19,19) 50%, rgb(16,16,16) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(16,16,16) 0%, rgb(19,19,19) 50%, rgb(16,16,16) 100%); */
+  box-shadow: -2rpx -4rpx 4rpx 0px rgba(255, 255, 255, 0.05),5.119px 4.774px 10px 0px rgba(0, 0, 0, 0.14);
+  color: #fff;
 }
 
 /* 品牌介绍 */
@@ -76,7 +79,7 @@
   color: rgba(16, 16, 16, 100);
   font-size: 28rpx;
   background-color: #fff;
-  margin-top: 70rpx;
+  margin-top: 40rpx;
   border: 1px solid rgba(255, 255, 255, 100);
 }
 
@@ -220,11 +223,15 @@ button {
 }
 
 .topWrapper{
-  height: 120rpx;
+  height: 180rpx;
   width: 100%;
 }
 
 .footer{
   width: 100%;
   float: left;
+}
+
+.title{
+  line-height: 60rpx;
 }

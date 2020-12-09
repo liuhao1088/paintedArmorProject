@@ -1,54 +1,39 @@
-<view class="container" style="height:{{windowHeight}}rpx;">
-  <!-- 导航 -->
-  <scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
-    <view id="{{'scroll'+ item.id}}" class="navItem">
-      <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
-        品牌介绍
-      </view>
+<!-- 导航 -->
+<scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
+  <view id="{{'scroll'+ item.id}}" class="navItem">
+    <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
+      品牌介绍
     </view>
-    <view id="{{'scroll'+ item.id}}" class="navItem">
-      <view class="navContent {{navId == 1?'active':'' }}" bindtap="changNav" data-id="1">
-        专利认证
-      </view>
+  </view>
+  <view id="{{'scroll'+ item.id}}" class="navItem">
+    <view class="navContent {{navId == 1?'active':'' }}" bindtap="changNav" data-id="1">
+      专利认证
     </view>
-    <view id="{{'scroll'+ item.id}}" class="navItem">
-      <view class="navContent {{navId == 2?'active':'' }}" bindtap="changNav" data-id="2">
-        售后保险
-      </view>
+  </view>
+  <view id="{{'scroll'+ item.id}}" class="navItem">
+    <view class="navContent {{navId == 2?'active':'' }}" bindtap="changNav" data-id="2">
+      售后保险
     </view>
-    <view id="{{'scroll'+ item.id}}" class="navItem">
-      <view class="navContent {{navId == 3?'active':'' }}" bindtap="changNav" data-id="3">
-        加入我们
-      </view>
+  </view>
+  <view id="{{'scroll'+ item.id}}" class="navItem">
+    <view class="navContent {{navId == 3?'active':'' }}" bindtap="changNav" data-id="3">
+      加入我们
     </view>
-  </scroll-view>
-
+  </view>
+</scroll-view>
+<view class="container">
   <!-- 内容列表 -->
   <view class="maxWrap">
-    <swiper class="top_swiper" circular bindchange="topSwiper" current="{{currentId}}">
+    <swiper class="top_swiper" circular bindchange="topSwiper" current="{{currentId}}"
+      style="height:{{windowHeight}}rpx;">
       <swiper-item duration="{{duration}}">
         <!-- 品牌介绍 -->
         <view class="centenItem">
-          <view class="wrap" style="padding-bottom: 60rpx;">
+          <view class="wrap">
             <view class="topWrapper"></view>
             <view class="title-wrapper">
-              <view class="title">
-                漆面装甲
-              </view>
-              <view class="msg">
-                漆面装甲，高端汽车漆面保护膜
-              </view>
-            </view>
-
-            <view class="imgItem">
               <image mode="widthFix"
-                src="https://img13.360buyimg.com/ddimg/jfs/t1/139402/10/16741/18043/5fc84ebcE5f1d0e5b/a3e0f7f79ea65e5e.jpg" />
-            </view>
-            <view class="contenItem">
-              漆面装甲，高端汽车漆面保护膜专业品牌运营商，依托于云林膜业十数年的技术沉淀，创新并应用最适合中国环境的TPH/TPU基材和高分子氟碳晶化涂层技术工艺制作，产品稳定、抗冲击性能一流，可以最大限度的保护原厂车漆免受外力损伤。 
-            </view>
-            <view class="contenItem">
-              漆面装甲高端汽车漆面保护膜作为汽车美容市场的新贵，完全按照国家工信部《车身贴》、《汽车漆面保护膜》行业标准生产，通过了SGS国际商检和ITS双重检验。其强大的产品性能，也使之成为汽车后市场广大经销商认可的专项盈利项目。
+                src="https://img11.360buyimg.com/ddimg/jfs/t1/131744/8/19142/226932/5fcf53b4E258297d4/70d238bed4bbbbf1.png" />
             </view>
           </view>
         </view>
@@ -56,48 +41,13 @@
       <swiper-item duration="{{duration}}">
         <!-- 专利认证 -->
         <view class="centenItem">
-          <view class="wrap" style="padding-bottom: 60rpx;">
+          <view class="wrap">
             <view class="title-wrapper">
               <view class="topWrapper"></view>
-              <view class="title">
-                漆面装甲
-              </view>
-              <view class="msg">
-                漆面装甲，高端汽车漆面保护膜
-              </view>
+              <image mode="widthFix"
+                src="https://img14.360buyimg.com/ddimg/jfs/t1/145443/6/17465/164115/5fcf551cEc521d587/d7ba4fdf381a3f2f.png" />
             </view>
 
-            <view class="wrapper" style="margin-top: 34rpx;border:none;">
-              <view class="patentItem">漆面装甲拥有以下多项原料及其制备技术专利</view>
-            </view>
-
-            <view class="listItem">
-              <view class="item" wx:for="{{patentList}}" wx:key="id">
-                <view class="listImg">
-                  <image src="{{item.imgUrl}}"></image>
-                </view>
-                <view class="patentContenItem">
-                  {{item.text}}
-                </view>
-              </view>
-            </view>
-
-            <view class="wrapper" style="margin-top: 34rpx;border:none;">
-              <view class="patentItem">并且通过SGS国际商检和ITS双重检验</view>
-            </view>
-
-            <view class="certificationImgItem">
-              <view class="certificationImg">
-                <image mode="widthFix"
-                  src="https://img10.360buyimg.com/ddimg/jfs/t1/136355/12/18504/24556/5fc9959bE3d355cbf/b433391c90eeecc6.png">
-                </image>
-              </view>
-              <view class="certificationImg">
-                <image mode="widthFix"
-                  src="https://img12.360buyimg.com/ddimg/jfs/t1/144118/12/17088/53496/5fc995dcE37d1be75/4de0478956e22ba5.png">
-                </image>
-              </view>
-            </view>
           </view>
         </view>
 
@@ -105,32 +55,11 @@
       <swiper-item duration="{{duration}}">
         <!-- 售后保险 -->
         <view class="centenItem">
-          <view class="wrap" style="padding-bottom: 90rpx;">
+          <view class="wrap">
             <view class="title-wrapper">
               <view class="topWrapper"></view>
-              <view class="title">
-                漆面装甲
-              </view>
-              <view class="msg">
-                漆面装甲，高端汽车漆面保护膜
-              </view>
-            </view>
-
-            <view class="wrapper" style="margin-top: 34rpx;border:none;background-color:#101010;">
-              <view class="patentItem" style="width: 50%;margin: auto;">三重保险，质量无忧</view>
-            </view>
-
-            <view class="insuranceItem" wx:for="{{insuranceList}}" wx:key="id">
-              <view class="item">
-                <view class="listImg">
-                  <image src="{{item.insuranceUrl}}">
-                  </image>
-                </view>
-                <view class="patentContenItem">
-                  {{item.insuranceText}}
-                </view>
-              </view>
-              <text class="contenItem">{{item.insuranceContent}}</text>
+              <image mode="widthFix"
+                src="https://img12.360buyimg.com/ddimg/jfs/t1/141895/10/17470/47342/5fcf55feE079edd61/5d0906f583ed8e1c.png" />
             </view>
           </view>
         </view>
@@ -139,7 +68,7 @@
       <swiper-item duration="{{duration}}">
         <!-- 加入我们 -->
         <view class="centenItem">
-          <view class="wrap" style="padding-bottom: 60rpx;">
+          <view class="wrap" style="padding-bottom: 40rpx;">
             <view class="title-wrapper">
               <view class="topWrapper"></view>
               <view class="title">
@@ -202,11 +131,13 @@
 
       </swiper-item>
     </swiper>
+
+    <view class="footer">
+      <image mode="widthFix"
+        src="https://img12.360buyimg.com/ddimg/jfs/t1/132861/28/18179/78658/5fc71c86E1951d453/8a1ee0da049afb6f.jpg" />
+    </view>
   </view>
-  <view class="footer">
-    <image mode="widthFix"
-      src="https://img12.360buyimg.com/ddimg/jfs/t1/132861/28/18179/78658/5fc71c86E1951d453/8a1ee0da049afb6f.jpg" />
-  </view>
+
 </view>
 
 
