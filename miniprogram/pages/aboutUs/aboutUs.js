@@ -101,6 +101,7 @@ Page({
   },
 
   getWindowHeight(navId){
+    let id = parseInt(navId);
     let that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -109,23 +110,24 @@ Page({
           rpxR = 750 / clientWidth;
         let calc = clientHeight * rpxR -110;
         console.log(calc)
-        if(navId === 0){
+        if(id === 0){
           if(calc > 1200){
             that.setData({
               windowHeight: calc,
             });
+            console.log("品牌>1200："+navId)
           }else{
             that.setData({
-              windowHeight: '1200',
-            });
-            
+              windowHeight: '1350',
+            }); 
+            console.log("品牌<1200："+navId)
           }
-        }else if(navId === 1){
+        }else if(id === 1){
           that.setData({
             windowHeight: calc,
           });
         }
-        else if(navId === 2){
+        else if(id === 2){
           if(calc > 1200){
             that.setData({
               windowHeight: calc,
@@ -136,9 +138,6 @@ Page({
             });
             
           }
-          // that.setData({
-          //   windowHeight: '1360',
-          // });
         }
         else{
           that.setData({
