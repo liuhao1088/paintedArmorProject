@@ -79,7 +79,7 @@
   color: rgba(16, 16, 16, 100);
   font-size: 28rpx;
   background-color: #fff;
-  margin-top: 40rpx;
+  margin-top: 70rpx;
   border: 1px solid rgba(255, 255, 255, 100);
 }
 

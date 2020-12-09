@@ -42,10 +42,14 @@
         <!-- 专利认证 -->
         <view class="centenItem">
           <view class="wrap">
-            <view class="title-wrapper">
+            <view class="title-wrapper" style="width: 100%;">
               <view class="topWrapper"></view>
+
               <image mode="widthFix"
-                src="https://img14.360buyimg.com/ddimg/jfs/t1/145443/6/17465/164115/5fcf551cEc521d587/d7ba4fdf381a3f2f.png" />
+                src="https://img12.360buyimg.com/ddimg/jfs/t1/134329/9/19068/85704/5fd03b87Eb5aa866b/21c42d6bee835a81.jpg" />
+                
+                <image mode="widthFix"
+                src="https://img13.360buyimg.com/ddimg/jfs/t1/141351/12/17724/122216/5fd03b95E1ef2a16b/c4cd76e8a5e65c79.jpg" />
             </view>
 
           </view>
@@ -116,7 +120,7 @@
               <view class="submit-wrapper">
                 <button hover-class="but-hover" bindtap="submit">提交</button>
               </view>
-              <view class="textItem">或</view>
+              <!-- <view class="textItem">或</view> -->
               <view class="codeItem">
                 <view class="codeImg" bindtap='previewImg'>
                   <image mode="widthFix" src="{{codeUrl}}"></image>
