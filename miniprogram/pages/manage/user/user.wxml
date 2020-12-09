@@ -1,9 +1,9 @@
 <!--miniprogram/pages/manage/user/user.wxml-->
 <view class="cu-bar search bg-gray" style="">
   <view class="search-form round">
-    <image style="position:absolute;top:15px;left:20px;height:20px;width:20px" src="../../../images/search.png"
-      class="cuIcon-search"></image>
-    <input class="" style="width:80%;padding-left:35px;" type="text" bindinput="search" placeholder="搜索关键字" confirm-type="search"></input>
+    <image style="position:absolute;left:20px;height:20px;width:20px" src="../../../images/search.png"
+      class="cuIcon-search align-center"></image>
+    <input class="" style="width:80%;padding-left:35px;" type="text" value="{{search}}" bindinput="search" placeholder="搜索关键字" confirm-type="search"></input>
   </view>
 
 </view>
@@ -17,16 +17,15 @@
         <view class='column' style="width:50%;">
           <view class='viewbox-number'>昵称：{{item.nickName}}</view>
           <view class='viewbox-remark'></view>
-          <text class="" style="position:absolute;right:30rpx;margin-top:32px;font-size:11px;color:gray">管理权限</text>
           <view class="viewbox-address"><text decode="{{true}}">性别：{{item.sex}} &nbsp;&nbsp;&nbsp;&nbsp;</text></view>
         </view>
         <view class='row'>
-
         </view>
       </view>
-      <switch class="viewbox-icon" checked="{{item.isChecked}}" style="right:90rpx;top:10px;z-index:2;"
-        data-index="{{index}}" bindchange="changeSwitch"></switch>
-      
+      <view class="viewbox-icon column" style="right:40rpx;top:10px;z-index:2;width:100rpx;">
+        <switch class="justify-center" checked="{{item.isChecked}}" data-index="{{index}}" bindchange="changeSwitch"></switch>
+        <view class="justify-center" style="font-size:22rpx;color:gray;margin-top:5px">管理权限</view>
+      </view>
     </view>
 
     <view style="height:0px"></view>

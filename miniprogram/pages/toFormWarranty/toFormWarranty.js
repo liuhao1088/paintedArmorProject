@@ -259,8 +259,11 @@ Page({
       for (let e = 0; e < 6; e++) {
         numberCode += Math.floor(Math.random() * 10)
       }
+      let path=parse[i] 
+      let indx=path.lastIndexOf('.') 
+      let postfix=path.substring(indx)
       wx.cloud.uploadFile({
-        cloudPath: content + '/' + content + '-' + code + "-" + numberCode + '.jpg',
+        cloudPath: content + '/' + content + '-' + code + "-" + numberCode + postfix,
         filePath: parse[i],
         success(res) {
           //上传成功后会返回永久地址
@@ -313,7 +316,7 @@ Page({
           delta: 0,
         })
       }, 2000)
-    }).catch(res => {
+    }).catch(error => {
       wx.hideLoading({
         success: (res) => {},
       })

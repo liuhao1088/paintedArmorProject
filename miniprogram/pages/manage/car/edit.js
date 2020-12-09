@@ -1,4 +1,4 @@
-// miniprogram/pages/manage/coupon/edit.js
+// miniprogram/pages/manage/car/edit.js
 var util = require('../../../utils/util.js');
 var nowdate = util.nowTime(new Date());
 let fileUrl = [];
@@ -260,6 +260,7 @@ Page({
         icon: 'success',
         duration: 2000
       })
+      wx.setStorageSync('refresh', true)
       setTimeout(function () {
         wx.navigateBack({
           delta: 0,

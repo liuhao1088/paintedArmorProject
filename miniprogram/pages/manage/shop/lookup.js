@@ -11,7 +11,7 @@ Page({
     person    : '',
     detail:'',
     phone: '',
-    address_name:''
+    address_name:'',creation_date:''
   },
 
   /**
@@ -19,13 +19,15 @@ Page({
    */
   onLoad: function (options) {
     editData = wx.getStorageSync('editData')
+    if(editData.creation_date==undefined) editData.creation_date='无'
     this.setData({
       shop_name: editData.shop_name,
       address: editData.address,
       detail:editData.detail,
       person: editData.person,
       phone: editData.phone,
-      address_name:editData.address_name
+      address_name:editData.address_name,
+      creation_date:editData.creation_date
     })
   },
   openLocation:function(){

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [],scrollHev:''
+    list: [],scrollHev:'',search:''
   },
 
   /**
@@ -24,46 +24,18 @@ Page({
         });
       }
     });
+    skip=0;
+    this.setData({list:[]})
+    this.loadData()
   },
   search(e) {
     var that = this;
+    that.setData({search:e.detail.value})
     skip = 0;
-    const db = wx.cloud.database(); //初始化数据库
-    if (e.detail.value == "") {
-      skip = 0;
-      this.setData({
-        list: []
-      })
-      this.loadData()
-    } else {
-      db.collection("user").where({
-        nickName: {
-          $regex: '.*' + e.detail.value,
-          $options: 'i'
-        }
-      }).skip(skip).limit(20).orderBy("creation_date", "desc").get().then(res => {
-        let data = res.data;
-        if(data.length==0){
-          that.setData({list:[]})
-        }
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].authority == "admin") {
-            data[i].isChecked = true
-          } else {
-            data[i].isChecked = false
-          }
-          if (i + 1 == data.length) {
-            console.log(data)
-            
-            that.setData({
-              list: data
-            })
-            wx.hideNavigationBarLoading()
-          }
-        }
-      });
-    }
-
+    this.setData({
+      list: []
+    })
+    this.loadData()
   },
   toLookup: function (e) {
     var that = this;
@@ -107,16 +79,46 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    skip = 0;
-    this.setData({
-      list: []
-    })
-    this.loadData()
+    
   },
   loadData: function () {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     const db = wx.cloud.database();
-    db.collection('user').skip(skip).limit(20).orderBy("creation_date", "desc").get().then(res => {
+    const _=db.command;
+    db.collection('user').where(_.or([{
+      nickName: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      creation_date: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      province: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      city: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      sex: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      authority: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    }])).skip(skip).limit(20).orderBy("creation_date", "desc").get().then(res => {
       let data = res.data;
       for (let i = 0; i < data.length; i++) {
         if (data[i].authority == "admin") {
@@ -130,10 +132,17 @@ Page({
           that.setData({
             list: alldata
           })
+          wx.hideLoading()
           wx.hideNavigationBarLoading()
         }
       }
 
+    }).catch(error=>{
+      wx.hideLoading()
+      wx.hideNavigationBarLoading()
+      wx.showModal({
+        title: '服务器繁忙，请稍后重试',
+      })
     })
   },
   bindDownLoad: function () {
