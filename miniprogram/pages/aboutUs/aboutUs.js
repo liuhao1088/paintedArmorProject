@@ -140,6 +140,7 @@ Page({
         // });
       }
     });
+
   },
 
 
@@ -185,8 +186,19 @@ Page({
     })
   },
   inputDetail: function (e) {
+    console.log(e)
     this.setData({
       detail: e.detail.value
+    })
+  },
+  callmobile:function(){
+    wx.makePhoneCall({
+      phoneNumber: '18665877758',
+    })
+  },
+  callphone:function(){
+    wx.makePhoneCall({
+      phoneNumber: '4009988078',
     })
   },
   showModal(e) {
@@ -252,6 +264,7 @@ Page({
       setTimeout(function () {
         that.setData({
           navId: 0,
+          currentId:0,
           address: "",
           phone: '',
           person: '',
@@ -260,7 +273,7 @@ Page({
           detail: ''
         })
       }, 2000)
-    }).catch(res => {
+    }).catch(error => {
       wx.hideLoading({
         success: (res) => {},
       })

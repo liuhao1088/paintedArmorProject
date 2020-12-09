@@ -127,8 +127,8 @@
                 </view>
               </view>
 
-              <view class="textItem" style="padding-bottom: 14rpx;">全国招商热线：186 6587 7758</view>
-              <view class="textItem">客户服务：400-9988-078</view>
+              <view class="textItem align-center justify-center" bindtap="callmobile" style="padding-bottom: 14rpx;">全国招商热线：186 6587 7758<image style="height:15px;width:15px;margin-left:10px;" src="../../images/phone.png" /></view>
+              <view class="textItem align-center justify-center" bindtap="callphone">客户服务：400-9988-078<image style="height:15px;width:15px;margin-left:10px;" src="../../images/phone.png" /></view>
             </view>
           </view>
         </view>
@@ -154,16 +154,16 @@
       </view>
     </view>
     <view class="padding-xl">
-      <view class="row">
-        <view style="font-weight:700;margin:5px 0px;">地点</view><input style="width:80%;margin:5px 10px;"
+      <view class="row align-center" style="margin-bottom:7px;">
+        <view style="font-weight:700;">地点</view><input style="width:80%;margin:0px 10px;"
           value="{{address_name}}" bindblur="inputAddressname" placeholder="请输入地点" />
       </view>
-      <view class="row">
-        <view style="font-weight:700;margin:5px 0px;">地址</view><input style="width:80%;margin:5px 10px;"
+      <view class="row align-center" style="margin-bottom:7px;">
+        <view style="font-weight:700;">地址</view><input style="width:80%;margin:0px 10px;"
           value="{{address}}" bindblur="inputAddress" placeholder="请输入地址" />
       </view>
-      <view class="row">
-        <view style="font-weight:700;margin:5px 0px;">补充</view><input style="width:80%;margin:5px 10px;"
+      <view class="row align-center" style="margin-bottom:7px;">
+        <view style="font-weight:700;">补充</view><input style="width:80%;margin:0px 10px;"
           value="{{detail}}" bindblur="inputDetail" placeholder="请输入补充，如楼层、门牌" />
       </view>
     </view>
