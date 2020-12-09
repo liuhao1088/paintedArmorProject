@@ -91,10 +91,11 @@ Page({
    */
   onLoad: function (options) {
     //获取屏幕高度
-    let navId = this.data.navId;
+    let navId = options.index;
     console.log(navId);
     this.setData({
-      navId
+      navId,
+      currentId:navId
     })
    this.getWindowHeight(navId);
   },
