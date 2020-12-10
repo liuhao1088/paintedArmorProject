@@ -12,10 +12,11 @@
   display: flex;
   white-space: nowrap;
   height: 100rpx;
-  background-color: #1d1d1d;
+  width: 100%;
   position: fixed;
   top: 0;
   z-index: 100;
+  background-color: #1d1d1d;
 }
 
 .navScroll .navItem {
@@ -23,7 +24,7 @@
   font-size: 20rpx;
   border: 0rpx solid red;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -32,15 +33,12 @@
 }
 
 .navScroll .navContent {
-  width: 60%;
+  width: 70%;
   height: 50rpx;
   line-height: 50rpx;
   border: 0rpx solid red;
   text-align: center;
   border-radius: 6px;
-  /* background-image: -moz-linear-gradient( 90deg, rgb(16,16,16) 0%, rgb(19,19,19) 50%, rgb(16,16,16) 100%);
-  background-image: -webkit-linear-gradient( 90deg, rgb(16,16,16) 0%, rgb(19,19,19) 50%, rgb(16,16,16) 100%);
-  background-image: -ms-linear-gradient( 90deg, rgb(16,16,16) 0%, rgb(19,19,19) 50%, rgb(16,16,16) 100%); */
   box-shadow: -2rpx -4rpx 4rpx 0px rgba(255, 255, 255, 0.05),5.119px 4.774px 10px 0px rgba(0, 0, 0, 0.14);
   color: #fff;
 }

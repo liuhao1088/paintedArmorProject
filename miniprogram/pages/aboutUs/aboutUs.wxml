@@ -1,5 +1,6 @@
 <!-- 导航 -->
-<scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
+
+  <scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
   <view id="{{'scroll'+ item.id}}" class="navItem">
     <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
       品牌介绍
@@ -21,6 +22,8 @@
     </view>
   </view>
 </scroll-view>
+
+
 <view class="container">
   <!-- 内容列表 -->
   <view class="maxWrap">
