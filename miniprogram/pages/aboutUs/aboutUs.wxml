@@ -163,7 +163,7 @@
       </view>
       <view class="row align-center" style="margin-bottom:7px;">
         <view style="font-weight:700;">地址</view><input style="width:80%;margin:0px 10px;"
-          value="{{address}}" bindinput="inputAddress" placeholder="" />
+          value="{{address}}" bindinput="inputAddress" placeholder="请输入地址" />
       </view>
       <view class="row align-center" style="margin-bottom:7px;">
         <view style="font-weight:700;">补充</view><input style="width:80%;margin:0px 10px;"

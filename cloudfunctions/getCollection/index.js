@@ -7,8 +7,8 @@ exports.main = async (event, context) => {
   
   const wxContext = cloud.getWXContext()
   try {
-    return await db.collection(event.collection).aggregate()
-    .where(event.where).get()
+    return await db.collection(event.collection)
+    .where(event.where).skip(event.skip).get()
     .then(res => {
       console.log(res)
       return res
