@@ -121,6 +121,7 @@ Page({
         icon: 'success',
         duration: 2000
       })
+      wx.setStorageSync('refresh', true)
       setTimeout(function () {
         wx.navigateBack({
           delta: 0,

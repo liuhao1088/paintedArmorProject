@@ -1,4 +1,4 @@
-// miniprogram/pages/manage/coupon/select.js
+// miniprogram/pages/manage/car/lookup.js
 var ind;
 
 Page({
@@ -17,7 +17,7 @@ Page({
     model: '',
     name: '',
     tempFilePaths: [],
-    tempFilePaths2: [],
+    tempFilePaths2: [],creation_date:''
   },
   toReturn: function () {
     wx.navigateBack({
@@ -32,6 +32,7 @@ Page({
    */
   onLoad: function (options) {
     let editData = wx.getStorageSync('editData')
+    if(editData.creation_date==undefined) editData.creation_date='无'
     if(editData.vin=='') editData.vin='空'
     this.setData({
       name: editData.name,
@@ -45,6 +46,7 @@ Page({
       model: editData.model,
       tempFilePaths: editData.check_img,
       tempFilePaths2: editData.build_img,
+      creation_date:editData.creation_date
     })
   },
   previewCheck:function(e){

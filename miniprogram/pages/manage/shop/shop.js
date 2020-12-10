@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [],scrollHev:''
+    list: [],scrollHev:'',startDate:'不限',endDate:'不限',search:''
   },
   toReturn: function () {
     wx.navigateBack({
@@ -67,60 +67,22 @@ Page({
     })
     
   },
-  addressInd: function (e) {
-
-
+  changeDate: function (e) {
+    this.setData({ startDate: e.detail.value })
   },
-  search(e) {
+  changeDate2: function (e) {
+    this.setData({ endDate: e.detail.value })
+  },
+  inputSearch(e) {
     var that = this;
+    that.setData({search:e.detail.value})
+  },
+  search:function(){
     skip = 0;
-    const db = wx.cloud.database(); //初始化数据库
-    const _=db.command;
-    if (e.detail.value == "") {
-      skip = 0;
-      this.setData({
-        list: []
-      })
-      this.loadData()
-    } else {
-      db.collection("shop").where(_.or([{
-        shop_name: {
-          $regex: '.*' + e.detail.value,
-          $options: 'i'
-        }
-      },{
-        address: {
-          $regex: '.*' + e.detail.value,
-          $options: 'i'
-        }
-      },{
-        address_name: {
-          $regex: '.*' + e.detail.value,
-          $options: 'i'
-        }
-      },{
-        person: {
-          $regex: '.*' + e.detail.value,
-          $options: 'i'
-        }
-      },{
-        mobile: {
-          $regex: '.*' + e.detail.value,
-          $options: 'i'
-        }
-      }])).skip(skip).limit(20).orderBy("creation_date", "desc").get().then(res => {
-        let data = res.data;
-        if(data.length==0){
-          that.setData({list:[]})
-        }
-        console.log(data)
-        that.setData({
-          list: data
-        })
-          
-      });
-    }
-
+    this.setData({
+      list: []
+    })
+    this.loadData()
   },
   toLookup: function (e) {
     var that = this;
@@ -152,6 +114,9 @@ Page({
         });
       }
     });
+    skip=0;
+    this.setData({list:[]})
+    this.loadData()
   },
 
   /**
@@ -165,21 +130,75 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    skip=0;
-    this.setData({list:[]})
-    this.loadData()
+    let boolean=wx.getStorageSync('refresh');
+    if(boolean==true){
+      skip=0;
+      this.setData({list:[]})
+      this.loadData()
+      wx.setStorageSync('refresh', false)
+    }
   },
   loadData:function(){
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     const db = wx.cloud.database();
-    db.collection('shop').skip(skip).limit(20).orderBy("creation_date","desc").get().then(res => {
+    const _=db.command;
+    let startstamp=Date.parse(that.data.startDate.replace(/-/g, '/')) / 1000
+    let endstamp=Date.parse(that.data.endDate.replace(/-/g, '/')) / 1000
+    if(that.data.startDate=='不限') startstamp=0
+    if(that.data.endDate=='不限') endstamp=100000000000;
+    db.collection('shop').where(_.or([{
+      shop_name: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      address: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      address_name: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      person: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      creation_date: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      detail: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    },{
+      phone: {
+        $regex: '.*' + that.data.search,
+        $options: 'i'
+      }
+    }])).where({creation_timestamp:_.gte(startstamp).and(_.lte(endstamp+86400))}).skip(skip).limit(20).orderBy("creation_date","desc").get().then(res => {
       let data = res.data;
       console.log(data)
       let alldata=that.data.list.concat(data)
       that.setData({
         list: alldata
       })
+      wx.hideLoading()
       wx.hideNavigationBarLoading()
+    }).catch(error=>{
+      wx.hideLoading()
+      wx.hideNavigationBarLoading()
+      wx.showModal({
+        title: '服务器繁忙，请稍后重试',
+      })
     })
   },
   bindDownLoad: function () {
