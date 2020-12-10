@@ -52,7 +52,7 @@ Page({
     phone: '',
     address_name: '',
     detail: '',
-    currentId: 0
+    currentId: 0,z:-1
   },
   topSwiper(event) {
     let navId = event.detail.current;
@@ -166,6 +166,7 @@ Page({
   chooseLocation: function (e) {
 
     var that = this;
+    that.setData({z:199})
     wx.chooseLocation({
       success: function (res) {
         console.log(res)
@@ -174,7 +175,7 @@ Page({
         that.showModal();
         that.setData({
           address: res.address,
-          address_name: res.name
+          address_name: res.name,
         })
       },
     })
@@ -207,12 +208,12 @@ Page({
   },
   showModal(e) {
     this.setData({
-      modalName: 'DialogModal1'
+      modalName: 'DialogModal1',z:199
     })
   },
   hideModal(e) {
     this.setData({
-      modalName: null
+      modalName: null,z:-1
     })
   },
   //提交

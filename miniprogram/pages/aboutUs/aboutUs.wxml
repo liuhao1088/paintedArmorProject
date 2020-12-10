@@ -145,7 +145,7 @@
 </view>
 
 
-<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}" style="z-index:{{z}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
       <view class="content">地址信息</view>
@@ -156,15 +156,15 @@
     <view class="padding-xl">
       <view class="row align-center" style="margin-bottom:7px;">
         <view style="font-weight:700;">地点</view><input style="width:80%;margin:0px 10px;"
-          value="{{address_name}}" bindblur="inputAddressname" placeholder="请输入地点" />
+          value="{{address_name}}" bindinput="inputAddressname" placeholder="请输入地点" />
       </view>
       <view class="row align-center" style="margin-bottom:7px;">
         <view style="font-weight:700;">地址</view><input style="width:80%;margin:0px 10px;"
-          value="{{address}}" bindblur="inputAddress" placeholder="请输入地址" />
+          value="{{address}}" bindinput="inputAddress" placeholder="" />
       </view>
       <view class="row align-center" style="margin-bottom:7px;">
         <view style="font-weight:700;">补充</view><input style="width:80%;margin:0px 10px;"
-          value="{{detail}}" bindblur="inputDetail" placeholder="请输入补充，如楼层、门牌" />
+          value="{{detail}}" bindinput="inputDetail" placeholder="请输入补充，如楼层、门牌" />
       </view>
     </view>
     <view class="cu-bar bg-white justify-end">

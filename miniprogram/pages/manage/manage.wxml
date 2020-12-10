@@ -4,5 +4,5 @@
 <view class='form-btn' bindtap='toCar'>车保管理</view>
 <view class='form-btn' bindtap='toUser'>用户管理</view>
 <view class='form-btn' bindtap='toShop'>门店管理</view>
-
+<button class='form-btn' open-type="contact" bindcontact="handleContact">客服</button>
 </view>
