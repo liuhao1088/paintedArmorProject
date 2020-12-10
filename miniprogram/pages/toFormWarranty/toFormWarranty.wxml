@@ -55,7 +55,7 @@
         <view class="picker-wrapper">
           <!-- 年份 -->
           <view class="picker-nav">
-            <picker bindchange="bindDateChange" mode="date" fields="year" value="{{year}}" start="1999"
+            <picker bindchange="bindDateChange" mode="date" fields="year" value="{{year}}" start="{{year}}"
       end="2999">
               <view class="years">
                 {{year}}
