@@ -52,7 +52,8 @@ Page({
     phone: '',
     address_name: '',
     detail: '',
-    currentId: 0,z:-1
+    currentId: 0,
+    z: -1
   },
   topSwiper(event) {
     let navId = event.detail.current;
@@ -95,12 +96,12 @@ Page({
     console.log(navId);
     this.setData({
       navId,
-      currentId:navId
+      currentId: navId
     })
-   this.getWindowHeight(navId);
+    this.getWindowHeight(navId);
   },
 
-  getWindowHeight(navId){
+  getWindowHeight(navId) {
     let id = parseInt(navId);
     let that = this;
     wx.getSystemInfo({
@@ -108,38 +109,40 @@ Page({
         let clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        let calc = clientHeight * rpxR -110;
+        let calc = clientHeight * rpxR - 110;
         console.log(calc)
-        if(id === 0){
-          if(calc > 1200){
-            that.setData({
-              windowHeight: calc,
+        if (id === 0) {
+              that.setData({
+              windowHeight: '1450',
             });
-            console.log("品牌>1200："+navId)
-          }else{
-            that.setData({
-              windowHeight: '1350',
-            }); 
-            console.log("品牌<1200："+navId)
-          }
-        }else if(id === 1){
+            console.log("品牌<1200：" + navId)
+          // if (calc > 1200) {
+          //   that.setData({
+          //     windowHeight: calc,
+          //   });
+          //   console.log("品牌>1200：" + navId)
+          // } else {
+          //   that.setData({
+          //     windowHeight: '1450',
+          //   });
+          //   console.log("品牌<1200：" + navId)
+          // }
+        } else if (id === 1) {
           that.setData({
             windowHeight: calc,
           });
-        }
-        else if(id === 2){
-          if(calc > 1200){
+        } else if (id === 2) {
+          if (calc > 1200) {
             that.setData({
               windowHeight: calc,
             });
-          }else{
+          } else {
             that.setData({
               windowHeight: '1120',
             });
-            
+
           }
-        }
-        else{
+        } else {
           that.setData({
             windowHeight: '1440',
           });
@@ -166,7 +169,9 @@ Page({
   chooseLocation: function (e) {
 
     var that = this;
-    that.setData({z:199})
+    that.setData({
+      z: 199
+    })
     wx.chooseLocation({
       success: function (res) {
         console.log(res)
@@ -196,24 +201,26 @@ Page({
       detail: e.detail.value
     })
   },
-  callmobile:function(){
+  callmobile: function () {
     wx.makePhoneCall({
       phoneNumber: '18665877758',
     })
   },
-  callphone:function(){
+  callphone: function () {
     wx.makePhoneCall({
       phoneNumber: '4009988078',
     })
   },
   showModal(e) {
     this.setData({
-      modalName: 'DialogModal1',z:199
+      modalName: 'DialogModal1',
+      z: 199
     })
   },
   hideModal(e) {
     this.setData({
-      modalName: null,z:-1
+      modalName: null,
+      z: -1
     })
   },
   //提交
@@ -269,7 +276,7 @@ Page({
       setTimeout(function () {
         that.setData({
           navId: 0,
-          currentId:0,
+          currentId: 0,
           address: "",
           phone: '',
           person: '',

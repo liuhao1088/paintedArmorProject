@@ -30,10 +30,10 @@
         <!-- 品牌介绍 -->
         <view class="centenItem">
           <view class="wrap">
-            <view class="topWrapper"></view>
-            <view class="title-wrapper">
+            <!-- <view class="topWrapper"></view> -->
+            <view class="title-wrapper" style="width: 100%;">
               <image mode="widthFix"
-                src="https://img11.360buyimg.com/ddimg/jfs/t1/131744/8/19142/226932/5fcf53b4E258297d4/70d238bed4bbbbf1.png" />
+                src="https://img12.360buyimg.com/ddimg/jfs/t1/139049/22/17867/411120/5fd1ed89E7279cdc2/6541ae2db15a896c.png" />
             </view>
           </view>
         </view>
