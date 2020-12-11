@@ -1,27 +1,29 @@
 <!-- 导航 -->
-
+<view class="maxScroll">
   <scroll-view scroll-x enable-flex scroll-with-animation class="navScroll">
-  <view id="{{'scroll'+ item.id}}" class="navItem">
-    <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
-      品牌介绍
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 0?'active':'' }}" bindtap="changNav" data-id="0">
+        品牌介绍
+      </view>
     </view>
-  </view>
-  <view id="{{'scroll'+ item.id}}" class="navItem">
-    <view class="navContent {{navId == 1?'active':'' }}" bindtap="changNav" data-id="1">
-      专利认证
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 1?'active':'' }}" bindtap="changNav" data-id="1">
+        专利认证
+      </view>
     </view>
-  </view>
-  <view id="{{'scroll'+ item.id}}" class="navItem">
-    <view class="navContent {{navId == 2?'active':'' }}" bindtap="changNav" data-id="2">
-      售后保险
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 2?'active':'' }}" bindtap="changNav" data-id="2">
+        售后保险
+      </view>
     </view>
-  </view>
-  <view id="{{'scroll'+ item.id}}" class="navItem">
-    <view class="navContent {{navId == 3?'active':'' }}" bindtap="changNav" data-id="3">
-      加入我们
+    <view id="{{'scroll'+ item.id}}" class="navItem">
+      <view class="navContent {{navId == 3?'active':'' }}" bindtap="changNav" data-id="3">
+        加入我们
+      </view>
     </view>
-  </view>
-</scroll-view>
+  </scroll-view>
+</view>
+
 
 
 <view class="container">
@@ -33,8 +35,7 @@
         <!-- 品牌介绍 -->
         <view class="centenItem">
           <view class="wrap">
-            <!-- <view class="topWrapper"></view> -->
-            <view class="title-wrapper" style="width: 100%;">
+            <view class="title-wrapper">
               <image mode="widthFix"
                 src="https://img12.360buyimg.com/ddimg/jfs/t1/139049/22/17867/411120/5fd1ed89E7279cdc2/6541ae2db15a896c.png" />
             </view>
@@ -45,14 +46,14 @@
         <!-- 专利认证 -->
         <view class="centenItem">
           <view class="wrap">
-            <view class="title-wrapper" style="width: 100%;">
+            <view class="title-wrapper">
               <view class="topWrapper"></view>
 
               <image mode="widthFix"
-                src="https://img12.360buyimg.com/ddimg/jfs/t1/134329/9/19068/85704/5fd03b87Eb5aa866b/21c42d6bee835a81.jpg" />
-                
-                <image mode="widthFix"
-                src="https://img13.360buyimg.com/ddimg/jfs/t1/141351/12/17724/122216/5fd03b95E1ef2a16b/c4cd76e8a5e65c79.jpg" />
+                src="https://img14.360buyimg.com/ddimg/jfs/t1/144054/12/17907/162780/5fd2da7fE3f19b724/bb3ddb9006bfbc69.png" />
+
+              <!-- <image mode="widthFix"
+                src="https://img13.360buyimg.com/ddimg/jfs/t1/141351/12/17724/122216/5fd03b95E1ef2a16b/c4cd76e8a5e65c79.jpg" /> -->
             </view>
 
           </view>
@@ -66,7 +67,7 @@
             <view class="title-wrapper">
               <view class="topWrapper"></view>
               <image mode="widthFix"
-                src="https://img12.360buyimg.com/ddimg/jfs/t1/141895/10/17470/47342/5fcf55feE079edd61/5d0906f583ed8e1c.png" />
+                src="https://img10.360buyimg.com/ddimg/jfs/t1/131105/12/19591/48742/5fd2da92E55f777a7/96433cd737ea772b.png" />
             </view>
           </view>
         </view>
@@ -130,8 +131,13 @@
                 </view>
               </view>
 
-              <view class="textItem align-center justify-center" bindtap="callmobile" style="padding-bottom: 14rpx;">全国招商热线：186 6587 7758<image style="height:15px;width:15px;margin-left:10px;" src="../../images/phone.png" /></view>
-              <view class="textItem align-center justify-center" bindtap="callphone">客户服务：400-9988-078<image style="height:15px;width:15px;margin-left:10px;" src="../../images/phone.png" /></view>
+              <view class="textItem align-center justify-center" bindtap="callmobile" style="padding-bottom: 14rpx;">
+                全国招商热线：186 6587 7758
+                <image style="height:15px;width:15px;margin-left:10px;" src="../../images/phone.png" />
+              </view>
+              <view class="textItem align-center justify-center" bindtap="callphone">客户服务：400-9988-078
+                <image style="height:15px;width:15px;margin-left:10px;" src="../../images/phone.png" />
+              </view>
             </view>
           </view>
         </view>
@@ -158,16 +164,16 @@
     </view>
     <view class="padding-xl">
       <view class="row align-center" style="margin-bottom:7px;">
-        <view style="font-weight:700;">地点</view><input style="width:80%;margin:0px 10px;"
-          value="{{address_name}}" bindinput="inputAddressname" placeholder="请输入地点" />
+        <view style="font-weight:700;">地点</view><input style="width:80%;margin:0px 10px;" value="{{address_name}}"
+          bindinput="inputAddressname" placeholder="请输入地点" />
       </view>
       <view class="row align-center" style="margin-bottom:7px;">
-        <view style="font-weight:700;">地址</view><input style="width:80%;margin:0px 10px;"
-          value="{{address}}" bindinput="inputAddress" placeholder="请输入地址" />
+        <view style="font-weight:700;">地址</view><input style="width:80%;margin:0px 10px;" value="{{address}}"
+          bindinput="inputAddress" placeholder="请输入地址" />
       </view>
       <view class="row align-center" style="margin-bottom:7px;">
-        <view style="font-weight:700;">补充</view><input style="width:80%;margin:0px 10px;"
-          value="{{detail}}" bindinput="inputDetail" placeholder="请输入补充，如楼层、门牌" />
+        <view style="font-weight:700;">补充</view><input style="width:80%;margin:0px 10px;" value="{{detail}}"
+          bindinput="inputDetail" placeholder="请输入补充，如楼层、门牌" />
       </view>
     </view>
     <view class="cu-bar bg-white justify-end">

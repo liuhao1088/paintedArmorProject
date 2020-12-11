@@ -6,7 +6,7 @@ Page({
    */
   data: {
     item:{
-      url:'https://img13.360buyimg.com/ddimg/jfs/t1/129767/4/18652/1258489/5fc98dfcEdd5a3f55/ddc6637af366e6ac.jpg'
+      url:'https://img13.360buyimg.com/ddimg/jfs/t1/149285/10/17722/753166/5fd2d896E470572bb/8b912d88f760cd72.jpg'
     }
   },
 
