@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   try {
     return await db.collection(event.collection)
-    .where(event.where).skip(event.skip).get()
+    .where(event.where).orderBy(event.ordername,event.order).skip(event.skip).get()
     .then(res => {
       console.log(res)
       return res

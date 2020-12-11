@@ -16,46 +16,9 @@ Page({
     index: 0,
     array: [],
     dateArray: [],
-    //品牌
-    brandIndex: 0,
-    brandArray: ['宝马', '保时捷', '宾利'],
-    objectBrandArray: [{
-        id: 0,
-        name: '劳斯莱斯'
-      },
-      {
-        id: 1,
-        name: '宝马'
-      },
-      {
-        id: 2,
-        name: '保时捷'
-      },
-      {
-        id: 3,
-        name: '宾利'
-      }
-    ],
     //车型
     modelIndex: 0,
-    modelArray: ["宝马1系", "宝马2系旅行车", "宝马3系", "宝马5系", "宝马5系新能源", "宝马X1", "宝马X1新能源", "宝马i3", "宝马1系(进口)", "宝马3系(进口)", "宝马3系GT", "宝马4系", "宝马5系(进口)", "宝马5系GT", "宝马6系", "宝马6系GT", "宝马7系", "宝马7系新能源", "宝马X3(进口)", "宝马X4", "宝马X5", "宝马X5新能源", "宝马X6", "宝马2系多功能旅行车", "宝马2系", "宝马i8", "宝马Z4", "宝马2系旅行车(进口)", "宝马X1(进口)", "宝马M3", "宝马M4", "宝马M5", "宝马M6", "宝马X5 M", "宝马X6 M", "宝马M2", "宝马1系M"],
-    objectModelArray: [{
-        id: 0,
-        name: 'a16'
-      },
-      {
-        id: 1,
-        name: 'b52'
-      },
-      {
-        id: 2,
-        name: 'c86'
-      },
-      {
-        id: 3,
-        name: 'y85'
-      }
-    ],
+    modelArray: [],
     imgUrl: [], //验收单
     imgUrl2: [],
     imgUrl3: [],
@@ -68,7 +31,8 @@ Page({
     vin: '',
     shop: '',
     brand: '宝马',
-    model: '宝马1系',imgBg:['','','','']
+    model:'宝马1系',
+    imgBg:['','','',''],chooseBrand:{_id: "6f6b3d465fd1cb2d0029dc970647ace1", id: 10, car_name: "宝马", auto_home_id: "15", bfirstletter: "B"}
   },
   inputName: function (e) {
     this.setData({
@@ -125,7 +89,6 @@ Page({
     console.log('picker发送选择改变，携带值为', e)
     this.setData({
       modelIndex: e.detail.value,
-      model: that.data.modelArray[e.detail.value]
     })
   },
 
@@ -214,8 +177,35 @@ Page({
     //获取系统年份
     let year = util.year(new Date());
     this.setData({
-      year: year,modelIndex:0,modelArray: ["宝马1系", "宝马2系旅行车", "宝马3系", "宝马5系", "宝马5系新能源", "宝马X1", "宝马X1新能源", "宝马i3", "宝马1系(进口)", "宝马3系(进口)", "宝马3系GT", "宝马4系", "宝马5系(进口)", "宝马5系GT", "宝马6系", "宝马6系GT", "宝马7系", "宝马7系新能源", "宝马X3(进口)", "宝马X4", "宝马X5", "宝马X5新能源", "宝马X6", "宝马2系多功能旅行车", "宝马2系", "宝马i8", "宝马Z4", "宝马2系旅行车(进口)", "宝马X1(进口)", "宝马M3", "宝马M4", "宝马M5", "宝马M6", "宝马X5 M", "宝马X6 M", "宝马M2", "宝马1系M"]
+      year: year,modelIndex:0,modelArray: util.modelList()
     })
+    if(!wx.getStorageSync('brandList')){
+      var that=this;
+      wx.cloud.callFunction({
+        name:'getCollection',
+        data:{
+          collection:'car_name',
+          where:{},
+          ordername:'id',order:'asc',
+          skip:0
+        }
+      }).then(res=>{
+        let data=res.result.data;
+        wx.cloud.callFunction({
+          name:'getCollection',
+          data:{
+            collection:'car_name',
+            where:{},
+            ordername:'id',order:'asc',
+            skip:100
+          }
+        }).then(res=>{
+          data=data.concat(res.result.data)
+          wx.setStorageSync('brandList', data)
+          console.log(data)
+        })
+      })
+    }
   },
   //提交
   async submit() {
@@ -299,7 +289,9 @@ Page({
           shop: that.data.shop,
           year: that.data.year,
           brand: that.data.brand,
-          model: that.data.model,
+          brand_id:that.data.chooseBrand.auto_home_id,
+          model: that.data.modelArray[that.data.modelIndex].car_set_name,
+          model_id:that.data.modelArray[that.data.modelIndex].auto_home_carset_id,
           creation_timestamp: Date.parse(creation_date.replace(/-/g, '/')) / 1000,
           check_img: fileUrl,
           build_img: fileUrl2
@@ -357,9 +349,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let chooseBrand=wx.getStorageSync('chooseBrand')
-    if(chooseBrand!==undefined){
-      this.setData({brand:chooseBrand.car_name})
+    if(wx.getStorageSync('chooseBrand')){
+      let chooseBrand=wx.getStorageSync('chooseBrand')
+      this.setData({chooseBrand:chooseBrand,brand:chooseBrand.car_name})
       wx.removeStorageSync('chooseBrand')
       let modelArray=wx.getStorageSync('modelList');
       console.log(chooseBrand,modelArray)

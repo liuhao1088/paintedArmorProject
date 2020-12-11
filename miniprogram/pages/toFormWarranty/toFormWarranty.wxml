@@ -55,7 +55,7 @@
         <view class="picker-wrapper">
           <!-- 年份 -->
           <view class="picker-nav">
-            <picker bindchange="bindDateChange" mode="date" fields="year" value="{{year}}" start="{{year}}"
+            <picker bindchange="bindDateChange" mode="date" fields="year" value="{{year}}"
       end="2999">
               <view class="years">
                 {{year}}
@@ -73,9 +73,9 @@
           </view>
           <!-- 车型 -->
           <view class="picker-nav">
-            <picker bindchange="bindModelChange" value="{{modelIndex}}" range="{{modelArray}}">
+            <picker bindchange="bindModelChange" value="{{modelIndex}}" range="{{modelArray}}" range-key="{{'car_set_name'}}">
               <view class="years">
-                {{model}}
+                {{modelArray[modelIndex].car_set_name}}
               </view>
             </picker>
           </view>

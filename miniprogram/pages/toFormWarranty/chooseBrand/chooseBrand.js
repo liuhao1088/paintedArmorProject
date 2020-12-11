@@ -9,7 +9,7 @@ Page({
     list:[],
     letter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], toView: "", 
     hot: [],
-    toTop:"",search:'',searchList:[]
+    toTop:"",search:'',searchList:[],scrolly:true,scrollHev:'800',widheight:'',winwidth:''
   },
 
   /**
@@ -17,97 +17,59 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    wx.cloud.callFunction({
-      name:'getCollection',
-      data:{
-        collection:'car_name',
-        where:{},
-        skip:0
+    brandList=wx.getStorageSync('brandList')
+    let arr=[];
+    for(let i=0;i<that.data.letter.length;i++){
+      let data=brandList.filter(item => item.bfirstletter.indexOf(that.data.letter[i])!==-1)
+      console.log(data)
+      arr=arr.concat(data)
+      that.setData({list:arr})
+    }
+    var that = this;
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight)
+        that.setData({
+          widheight: res.windowHeight,
+          winwidth:res.windowWidth,
+          scrollHev:res.windowHeight-50
+        });
       }
-    }).then(res=>{
-      console.log(res)
-      let data=res.result.data;
-      that.setData({list:data})
-      wx.cloud.callFunction({
-        name:'getCollection',
-        data:{
-          collection:'car_name',
-          where:{},
-          skip:100
-        }
-      }).then(res=>{
-        console.log(res)
-        data=data.concat(res.result.data)
-        brandList=data;
-        console.log(data)
-        that.setData({list:data})
-      })
-    })
+    });
   },
   chooseBrand:function(e){
     var ind = parseInt(e.currentTarget.dataset.index);
-    var that=this;
-    wx.showLoading({
-      title: '选择中',
-    })
-    wx.setStorageSync('chooseBrand', brandList[ind])
-    wx.cloud.callFunction({
-      name:'getCollection',
-      data:{
-        collection:'car_set',
-        where:{car_id:brandList[ind].auto_home_id},
-        skip:0
-      }
-    }).then(res=>{
-      let data=res.result.data;
-      let arr=[]
-      for(let i=0;i<data.length;i++){
-        arr.push(data[i].car_set_name)
-        if(i+1==data.length){
-          console.log(arr)
-          wx.setStorageSync('modelList', arr)
-          wx.hideLoading({
-            success: (res) => {},
-          })
-          wx.navigateBack({
-            default:1
-          })
-        }
-      }
-      
-    })
+    this.getModelList(brandList,ind)
   },
   chooseSearchbrand:function(e){
     var ind = parseInt(e.currentTarget.dataset.index);
+    this.getModelList(this.data.searchList,ind)
+  },
+  getModelList:function(arr,ind){
     var that=this;
     wx.showLoading({
       title: '选择中',
     })
-    wx.setStorageSync('chooseBrand',that.data.searchList[ind])
+    wx.setStorageSync('chooseBrand', arr[ind])
     wx.cloud.callFunction({
       name:'getCollection',
       data:{
         collection:'car_set',
-        where:{car_id:that.data.searchList[ind].auto_home_id},
+        where:{car_id:arr[ind].auto_home_id},
+        ordername:'car_set_firstletter',order:'asc',
         skip:0
       }
     }).then(res=>{
       let data=res.result.data;
-      let arr=[]
-      for(let i=0;i<data.length;i++){
-        arr.push(data[i].car_set_name)
-        if(i+1==data.length){
-          console.log(arr)
-          wx.setStorageSync('modelList', arr)
-          wx.hideLoading({
-            success: (res) => {},
-          })
-          wx.navigateBack({
-            default:1
-          })
-        }
-      }
-      
+      console.log(data)
+      wx.setStorageSync('modelList', data)
+      wx.hideLoading({
+        success: (res) => {},
+      })
+      wx.navigateBack({
+        default:1
+      })
     })
   },
   delete:function(){
@@ -128,7 +90,7 @@ Page({
   touchLetter:function(e){
     var ind = parseInt(e.currentTarget.dataset.index);
     var that=this;
-    console.log(that.data.letter[ind])
+    console.log(that.data.letter[ind],e)
     this.setData({
       toView: that.data.letter[ind]
     })
@@ -136,10 +98,22 @@ Page({
   touchmoveLetter:function(e){
     var ind = parseInt(e.currentTarget.dataset.index);
     var that=this;
-    console.log(that.data.letter[ind])
-    this.setData({
-      toView: that.data.letter[ind]
+    var pageY=e.touches[0].pageY;
+    let index=parseInt(((pageY-50)/(520*((that.data.winwidth*2)/750)))*26-1);
+    console.log(e,pageY,index)
+    wx.showToast({
+      title: that.data.letter[index],
+      icon:'none',
     })
+    this.setData({
+      toView:that.data.letter[index]
+    })
+  },
+  touchstart:function(){
+    
+  },
+  touchend:function(){
+    this.setData({scrolly:true})
   },
   toTop:function(){
     this.setData({
