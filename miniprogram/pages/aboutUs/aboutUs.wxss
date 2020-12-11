@@ -22,7 +22,7 @@
 
 .navScroll {
   height: 100%;
-  width: 88%;
+  width: 87%;
   display: flex;
   white-space: nowrap;
   margin: auto;
