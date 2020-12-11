@@ -70,7 +70,7 @@
 
 @font-face {
   font-family: 'Siyuan Song';
-  src: url('https://6172-armoured-8gzmmlci82e3016b-1304414766.tcb.qcloud.la/build/%E5%AD%97%E4%BD%93/%E6%80%9D%E6%BA%90%E5%AE%8B%E4%BD%93.ttf?sign=6f278ebd256b70f7cf3dfa4054aae97b&t=1607076597');
+  src: url('https://6172-armoured-8gzmmlci82e3016b-1304414766.tcb.qcloud.la/build/%E5%AD%97%E4%BD%93/SOURCEHANSERIFSC-SEMIBOLD.OTF?sign=d7ddb418d9018160e64675088461424a&t=1607656210');
 }
 
 /* 系列内容 */
@@ -130,6 +130,7 @@
   font-size: 40rpx;
   line-height: 100rpx;
   margin-left: 20rpx;
+  /* font-weight: 600; */
 }
 
 .exc-wrapper {
