@@ -20,7 +20,7 @@ Page({
       success: function (res) {
         that.setData({
           widheight: res.windowHeight,
-          scrollHev:res.windowHeight-70
+          scrollHev:res.windowHeight-50
         });
       }
     });
@@ -31,6 +31,15 @@ Page({
   search(e) {
     var that = this;
     that.setData({search:e.detail.value})
+    skip = 0;
+    this.setData({
+      list: []
+    })
+    this.loadData()
+  },
+  delete:function(e){
+    var that = this;
+    that.setData({search:''})
     skip = 0;
     this.setData({
       list: []
@@ -120,6 +129,10 @@ Page({
       }
     }])).skip(skip).limit(20).orderBy("creation_date", "desc").get().then(res => {
       let data = res.data;
+      if(data.length==0){
+        wx.hideLoading()
+        wx.hideNavigationBarLoading()
+      }
       for (let i = 0; i < data.length; i++) {
         if (data[i].authority == "admin") {
           data[i].isChecked = true

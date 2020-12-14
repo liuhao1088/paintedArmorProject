@@ -110,7 +110,7 @@ Page({
       success: function (res) {
         that.setData({
           widheight: res.windowHeight,
-          scrollHev:res.windowHeight-70
+          scrollHev:res.windowHeight-155
         });
       }
     });

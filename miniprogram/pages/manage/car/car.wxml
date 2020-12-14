@@ -1,13 +1,14 @@
 <!--miniprogram/pages/manage/car/car.wxml-->
-<view class="cu-bar search bg-gray" style="">
-  <view class="search-form round">
-    <image style="position:absolute;left:20px;height:20px;width:20px" bindtap="search" src="../../../images/search.png"
-      class="cuIcon-search align-center"></image>
-    <input class="" style="width:80%;padding-left:35px;" type="text" value="{{search}}" bindinput="inputSearch" placeholder="搜索关键字" confirm-type="search"></input>
+<view class="cu-bar bg-black search" style="height:50px;">
+  <view class='search-form radius'>
+    <text class="icon-search"></text>
+    <input type="text" placeholder="搜索关键字" confirm-type="search" bindinput='inputSearch' value="{{search}}"></input>
   </view>
-
+  <view class='action' bindtap='search'>
+    <text>搜索</text>
+  </view>
 </view>
-<view class='datebox align-center'>
+<view class='datebox align-center bg-grey'>
   <view class='til align-center'>筛选日期</view>
   <picker mode="date" class='pick justify-center align-center' value="{{startDate}}" bindchange="changeDate">
       {{startDate}}
@@ -30,9 +31,9 @@
       </view>
     </view>
 
-    <view style="height:80px"></view>
+    <view style="height:10px"></view>
   </scroll-view>
   <view class="bottom" style="">
-    <button class="button justify-center align-center" style="" bindtap="toAdd">添加信息</button>
+    <button class="button bg-grey justify-center align-center" style="" bindtap="toAdd">添加信息</button>
   </view>
 </view>

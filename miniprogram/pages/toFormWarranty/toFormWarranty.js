@@ -355,7 +355,11 @@ Page({
       wx.removeStorageSync('chooseBrand')
       let modelArray=wx.getStorageSync('modelList');
       let chooseInd=wx.getStorageSync('chooseModelIndex');
-      console.log(chooseBrand,modelArray)
+      console.log(chooseInd,modelArray)
+      if(chooseInd>=modelArray.length||chooseInd==undefined||chooseInd==""){
+        chooseInd=0
+      }
+      console.log(chooseBrand,modelArray,chooseInd)
       this.setData({modelArray:modelArray,modelIndex:chooseInd})
       wx.removeStorageSync('modelList')
     }

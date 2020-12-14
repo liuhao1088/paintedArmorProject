@@ -1,11 +1,13 @@
 <!--miniprogram/pages/manage/user/user.wxml-->
-<view class="cu-bar search bg-gray" style="">
-  <view class="search-form round">
-    <image style="position:absolute;left:20px;height:20px;width:20px" src="../../../images/search.png"
-      class="cuIcon-search align-center"></image>
-    <input class="" style="width:80%;padding-left:35px;" type="text" value="{{search}}" bindinput="search" placeholder="搜索关键字" confirm-type="search"></input>
+<view class="cu-bar bg-black search" style="height:50px;">
+  <view class='search-form radius'>
+    <text class="icon-search"></text>
+    <input type="text" placeholder="搜索关键字" confirm-type="search" bindinput='search' value="{{search}}"></input>
   </view>
-
+  <view class='action' bindtap='delete'>
+    <text class='icon-close'></text>
+    <text>取消</text>
+  </view>
 </view>
 <view class="container">
   <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHev}}px;" class="list"
