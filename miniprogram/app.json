@@ -18,7 +18,8 @@
     "pages/manage/shop/edit",
     "pages/manage/shop/lookup",
     "pages/toFormWarranty/chooseBrand/chooseBrand",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/toFormWarranty/chooseModel/chooseModel"
   ],
   "window": {
     "backgroundTextStyle": "light",

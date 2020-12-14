@@ -354,8 +354,9 @@ Page({
       this.setData({chooseBrand:chooseBrand,brand:chooseBrand.car_name})
       wx.removeStorageSync('chooseBrand')
       let modelArray=wx.getStorageSync('modelList');
+      let chooseInd=wx.getStorageSync('chooseModelIndex');
       console.log(chooseBrand,modelArray)
-      this.setData({modelArray:modelArray,modelIndex:0})
+      this.setData({modelArray:modelArray,modelIndex:chooseInd})
       wx.removeStorageSync('modelList')
     }
   },

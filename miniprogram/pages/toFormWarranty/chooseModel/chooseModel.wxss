@@ -1,0 +1,2 @@
+/* miniprogram/pages/toFormWarranty/chooseModel/chooseModel.wxss */
+@import "../chooseBrand/chooseBrand.wxss";
