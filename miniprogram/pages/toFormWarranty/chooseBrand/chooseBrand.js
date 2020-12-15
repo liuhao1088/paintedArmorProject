@@ -22,11 +22,14 @@ Page({
     var that=this;
     brandList=wx.getStorageSync('brandList')
     let arr=[];
-    for(let i=0;i<that.data.letter.length;i++){
+    for(let i=0;i<2;i++){
       let data=brandList.filter(item => item.bfirstletter.indexOf(that.data.letter[i])!==-1)
       console.log(data)
       arr=arr.concat(data)
       that.setData({list:arr})
+      if(i==1){
+        that.setData({list:brandList})
+      }
     }
     var that = this;
     // 获取系统信息

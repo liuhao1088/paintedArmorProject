@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[],search:'',car_name:''
+    list:[],search:'',car_name:'',scrollHev:''
   },
 
   /**
@@ -16,7 +16,18 @@ Page({
     modelList=wx.getStorageSync('modelList');
     let brand=wx.getStorageSync('chooseBrand')
     this.setData({list:modelList,car_name:brand.car_name})
-    
+    var that = this;
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight)
+        that.setData({
+          widheight: res.windowHeight,
+          winwidth:res.windowWidth,
+          scrollHev:res.windowHeight-50
+        });
+      }
+    });
   },
   //搜索
   search:function(e){

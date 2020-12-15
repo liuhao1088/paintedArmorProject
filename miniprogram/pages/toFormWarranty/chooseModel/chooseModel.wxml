@@ -9,10 +9,14 @@
     <text>取消</text>
   </view>
 </view>
-<view class='letter' style=""> {{car_name}}</view>
-<view wx:for="{{list}}" wx:key data-index="{{index}}">
+<scroll-view scroll-y="{{scrolly}}" style="height:{{scrollHev}}px;background:white;position:relative;z-index:3;"
+  bindscroll="scrollview">
+  <view class='letter' style=""> {{car_name}}</view>
+  <view wx:for="{{list}}" wx:key data-index="{{index}}">
     <view class="city" style=''>
-      <view class='city-tag justify-center align-center' data-index="{{index}}" bindtap='chooseModel'>{{item.car_set_name}}</view>
+      <view class='city-tag justify-center align-center' data-index="{{index}}" bindtap='chooseModel'>
+        {{item.car_set_name}}</view>
     </view>
   </view>
-<view style="height:15px;"></view>
+  <view style="height:15px;"></view>
+</scroll-view>
