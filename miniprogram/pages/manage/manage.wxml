@@ -5,4 +5,7 @@
 <view class='form-btn bg-grey' bindtap='toUser'>用户管理</view>
 <view class='form-btn bg-grey' bindtap='toShop'>门店管理</view>
 <button class='form-btn bg-grey' open-type="contact" bindcontact="handleContact">客服</button>
+<!--<button class='btn1 justify-center' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" lang="zh_CN" style="width:80%;">
+          <view>微信一键登录</view>
+        </button>-->
 </view>
