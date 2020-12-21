@@ -207,43 +207,51 @@ Page({
       })
     }
   },
-  //提交
-  async submit() {
-    var that = this;
-    if (that.data.name !== "" && that.data.mobile !== "" && that.data.number_plate !== "" && that.data.code !== "" && that.data.shop !== "") {
-      wx.showLoading({
-        title: '提交中，请稍等',
-      })
-      wx.cloud.database().collection('warranty').where({
-        number_plate: that.data.number_plate
-      }).get().then(async res => {
-        if (res.data.length !== 0) {
-          wx.showModal({
-            showCancel: false,
-            title: '该车辆的质保信息已经录入过',
-            content: '请勿重复提交'
-          })
-          wx.hideLoading({
-            success: (res) => {},
-          })
-        } else {
-          let checkArr = []
-          let buildArr = []
-          if (that.data.imgUrl !== []) await that.uploadimg(0, that.data.imgUrl, 'check', checkArr)
-          if (that.data.imgUrl2 !== []) await that.uploadimg(0, that.data.imgUrl2, 'build', buildArr)
-          if (that.data.imgUrl3 !== []) await that.uploadimg(0, that.data.imgUrl3, 'build', buildArr)
-          if (that.data.imgUrl4 !== []) await that.uploadimg(0, that.data.imgUrl4, 'build', buildArr)
-          that.add(checkArr, buildArr);
-        }
-      })
-    } else {
-      wx.showModal({
-        showCancel: false,
-        title: '请填写完整内容'
-      })
-    }
-
+  submit(event){
+    wx.showToast({
+      title: '质保编码不存在',
+      icon: 'none',
+      duration: 2000
+    })
+    return;
   },
+  //提交
+  // async submit() {
+  //   var that = this;
+  //   if (that.data.name !== "" && that.data.mobile !== "" && that.data.number_plate !== "" && that.data.code !== "" && that.data.shop !== "") {
+  //     wx.showLoading({
+  //       title: '提交中，请稍等',
+  //     })
+  //     wx.cloud.database().collection('warranty').where({
+  //       number_plate: that.data.number_plate
+  //     }).get().then(async res => {
+  //       if (res.data.length !== 0) {
+  //         wx.showModal({
+  //           showCancel: false,
+  //           title: '该车辆的质保信息已经录入过',
+  //           content: '请勿重复提交'
+  //         })
+  //         wx.hideLoading({
+  //           success: (res) => {},
+  //         })
+  //       } else {
+  //         let checkArr = []
+  //         let buildArr = []
+  //         if (that.data.imgUrl !== []) await that.uploadimg(0, that.data.imgUrl, 'check', checkArr)
+  //         if (that.data.imgUrl2 !== []) await that.uploadimg(0, that.data.imgUrl2, 'build', buildArr)
+  //         if (that.data.imgUrl3 !== []) await that.uploadimg(0, that.data.imgUrl3, 'build', buildArr)
+  //         if (that.data.imgUrl4 !== []) await that.uploadimg(0, that.data.imgUrl4, 'build', buildArr)
+  //         that.add(checkArr, buildArr);
+  //       }
+  //     })
+  //   } else {
+  //     wx.showModal({
+  //       showCancel: false,
+  //       title: '请填写完整内容'
+  //     })
+  //   }
+
+  // },
   //上传图片到云存储
   uploadimg: function (i, parse, content, arr) {
     if(parse.length == 0) return;
