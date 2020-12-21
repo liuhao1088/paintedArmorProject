@@ -16,5 +16,5 @@
    position: absolute;bottom:5%;right:45rpx;z-index: 5;display: flex;flex-direction: column;justify-content: center;
  }
  .index{
-   position: fixed;top:55px;right:0rpx;display:flex;flex-direction: column;z-index: 6;width:60rpx;
+   position: fixed;top:60px;right:0rpx;display:flex;flex-direction: column;z-index: 6;width:60rpx;
  }
