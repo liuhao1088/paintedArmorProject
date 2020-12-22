@@ -4,10 +4,6 @@
     <text class="icon-search"></text>
     <input type="text" placeholder="搜索汽车品牌名称" confirm-type="search" bindinput='search' value="{{search}}"></input>
   </view>
-  <view class='action' bindtap='delete'>
-    <text class='icon-close'></text>
-    <text>取消</text>
-  </view>
 </view>
 <!--<view class='toTop-box'><image class='toTop' src="/images/huidingbu.png" bindtap='toTop' /><view class="text"></view></view>-->
 <scroll-view scroll-y="{{scrolly}}" style="height:{{scrollHev}}px;background:white;position:relative;z-index:3;" bindscroll="scrollview" scroll-into-view="{{toView}}" scroll-top="{{toTop}}">

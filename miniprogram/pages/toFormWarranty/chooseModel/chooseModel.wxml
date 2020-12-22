@@ -4,12 +4,12 @@
     <text class="icon-search"></text>
     <input type="text" placeholder="搜索汽车型号名称" confirm-type="search" bindinput='search' value="{{search}}"></input>
   </view>
-  <view class='action' bindtap='delete'>
+  <!--<view class='action' bindtap='search'>
     <text class='icon-close'></text>
-    <text>取消</text>
-  </view>
+    <text>搜索</text>
+  </view>-->
 </view>
-<scroll-view scroll-y="{{scrolly}}" style="height:{{scrollHev}}px;background:white;position:relative;z-index:3;"
+<scroll-view scroll-y style="height:{{scrollHev}}px;background:white;position:relative;z-index:3;"
   bindscroll="scrollview">
   <view class='letter' style=""> {{car_name}}</view>
   <view wx:for="{{list}}" wx:key data-index="{{index}}">

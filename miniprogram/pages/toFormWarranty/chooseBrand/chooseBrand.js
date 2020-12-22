@@ -94,7 +94,7 @@ Page({
     console.log(e.detail.value,brandList)
     let arr = brandList.filter(item => item.car_name.indexOf(e.detail.value)!==-1)
     console.log(arr)
-    this.setData({searchList:arr})
+    this.setData({searchList:arr,toTop:0})
     if(this.data.search==""){
       this.setData({searchList:[]})
     }
