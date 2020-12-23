@@ -5,6 +5,13 @@
     <input type="text" placeholder="搜索汽车品牌名称" confirm-type="search" bindinput='search' value="{{search}}"></input>
   </view>
 </view>
+<scroll-view class="index align-center" style='font-size:26rpx;color:black;height:{{inH}}px;-webkit-overflow-scrolling: touch;z-index:100;top:{{inTop}}px;'>
+    <view wx:for="{{letter}}" style="height:{{inH/26}}px" class="justify-center align-center" wx:key data-index="{{index}}" bindtouchmove="touchmoveLetter" bindtouchend="touchend" bindtap='touchLette'>
+      <view class="" style='margin-top:0rpx;font-weight:{{letterWeight[index]}};'>
+        <view class=''>{{item}}</view>
+      </view>
+    </view>
+</scroll-view>
 <!--<view class='toTop-box'><image class='toTop' src="/images/huidingbu.png" bindtap='toTop' /><view class="text"></view></view>-->
 <scroll-view scroll-y="{{scrolly}}" style="height:{{scrollHev}}px;background:white;position:relative;z-index:3;" bindscroll="scrollview" scroll-into-view="{{toView}}" scroll-top="{{toTop}}">
   <!--<view class='letter' style=''> 热门品牌</view>
@@ -15,13 +22,7 @@
       </view>
     </view>
   </view>-->
-  <view class="index" style='font-size:28rpx;color:black;height:90vh;'>
-    <view wx:for="{{letter}}" class="justify-center align-center" wx:key data-index="{{index}}" bindtouchmove="touchmoveLetter" bindtouchend="touchend" bindtap='touchLette'>
-      <view class="" style='margin-top:0rpx;font-weight:{{letterWeight[index]}};'>
-        <view class=''>{{item}}</view>
-      </view>
-    </view>
-  </view>
+
   <view class='letter' style="display:{{search==''?'none':'flex'}}"> 搜索结果</view>
   <view wx:for="{{searchList}}" wx:key data-index="{{index}}">
     <view class="city" style=''>

@@ -12,7 +12,7 @@ Page({
     letter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], toView: "", 
     letterWeight:['800','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400','400'],
     hot: [],
-    toTop:"",search:'',searchList:[],scrolly:true,scrollHev:'800',widheight:'',winwidth:''
+    toTop:"",search:'',searchList:[],scrolly:true,scrollHev:'800',widheight:'',winwidth:'',inH:'',inTop:''
   },
 
   /**
@@ -39,7 +39,9 @@ Page({
         that.setData({
           widheight: res.windowHeight,
           winwidth:res.windowWidth,
-          scrollHev:res.windowHeight-50
+          scrollHev:res.windowHeight-50,
+          inH:res.windowHeight-120,
+          inTop:(res.windowHeight+50-(res.windowHeight-120))/2
         });
       }
     });
@@ -126,14 +128,11 @@ Page({
     var ind = parseInt(e.currentTarget.dataset.index);
     var that=this;
     var pageY=e.touches[0].pageY;
-    let index=parseInt(((pageY-50)/(520*((that.data.winwidth*2)/750)))*26-1);
+    //let index=parseInt(((pageY-50)/(520*((that.data.winwidth*2)/750)))*26-1);
+    let index=parseInt((pageY-that.data.inTop)/(that.data.inH/26))
     console.log(e,pageY,index)
     endindex=index;
     ifmove=true;
-    wx.showToast({
-      title: that.data.letter[index],
-      icon:'none',
-    })
     /*let letterweight=that.data.letterWeight;
     for(let i=0;i<letterweight.length;i++){
       if(i==index){
@@ -147,9 +146,17 @@ Page({
         })
       }
     }*/
-    this.setData({
-      toView:that.data.letter[index]
-    })
+    let last=wx.getStorageSync('lastInd')
+    if(last==index){}else{
+      wx.showToast({
+        title: that.data.letter[index],
+        icon:'none',
+      })
+      this.setData({
+        toView:that.data.letter[index]
+      })
+    }
+    wx.setStorageSync('lastInd', index)
   },
   touchstart:function(e){
     
